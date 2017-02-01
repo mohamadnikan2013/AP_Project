@@ -5,8 +5,8 @@
 #ifndef RIVERRAIDPROJECT_BULLET_H
 #define RIVERRAIDPROJECT_BULLET_H
 
-
-class Bullet {
+#include "movingObject.h"
+class Bullet : public MovingObject {
 
 };
 

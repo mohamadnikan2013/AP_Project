@@ -4,9 +4,9 @@
 
 #ifndef RIVERRAIDPROJECT_JET_H
 #define RIVERRAIDPROJECT_JET_H
+#include"AerialEnemy.h"
 
-
-class Jet {
+class Jet : public AerialEnemy {
 
 };
 

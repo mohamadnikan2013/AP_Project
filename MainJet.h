@@ -4,9 +4,9 @@
 
 #ifndef RIVERRAIDPROJECT_MAINJET_H
 #define RIVERRAIDPROJECT_MAINJET_H
+#include"Object.h"
 
-
-class MainJet {
+class MainJet : public Object {
 
 };
 

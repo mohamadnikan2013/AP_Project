@@ -4,9 +4,9 @@
 
 #ifndef RIVERRAIDPROJECT_WALL_H
 #define RIVERRAIDPROJECT_WALL_H
+#include "movingObject.h"
 
-
-class Wall {
+class Wall :public MovingObject {
 
 };
 

@@ -4,9 +4,9 @@
 
 #ifndef RIVERRAIDPROJECT_BRIDGE_H
 #define RIVERRAIDPROJECT_BRIDGE_H
+#include"movingObject.h"
 
-
-class Bridge {
+class Bridge : MovingObject{
 
 };
 

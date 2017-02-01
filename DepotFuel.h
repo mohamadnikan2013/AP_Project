@@ -4,9 +4,9 @@
 
 #ifndef RIVERRAIDPROJECT_DEPOTFUEL_H
 #define RIVERRAIDPROJECT_DEPOTFUEL_H
+#include"movingObject.h"
 
-
-class DepotFuel {
+class DepotFuel : MovingObject {
 
 };
 

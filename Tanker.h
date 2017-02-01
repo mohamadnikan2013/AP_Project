@@ -4,9 +4,9 @@
 
 #ifndef RIVERRAIDPROJECT_TANKER_H
 #define RIVERRAIDPROJECT_TANKER_H
+#include "Marineٍnemy.h"
 
-
-class Tanker {
+class Tanker : public Marineٍnemy {
 
 };
 

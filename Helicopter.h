@@ -4,9 +4,9 @@
 
 #ifndef RIVERRAIDPROJECT_HELICOPTER_H
 #define RIVERRAIDPROJECT_HELICOPTER_H
+#include"AerialEnemy.h"
 
-
-class Helicopter {
+class Helicopter  : public AerialEnemy{
 
 };
 

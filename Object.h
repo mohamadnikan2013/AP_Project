@@ -4,9 +4,9 @@
 
 #ifndef RIVERRAIDPROJECT_OBJECT_H
 #define RIVERRAIDPROJECT_OBJECT_H
+#include<QGraphicsRectItem>
 
-
-class Object {
+class Object : public QGraphicsRectItem{
 
 };
 

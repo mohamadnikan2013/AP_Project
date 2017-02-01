@@ -4,9 +4,9 @@
 
 #ifndef RIVERRAIDPROJECT_MARINEٍNEMY_H
 #define RIVERRAIDPROJECT_MARINEٍNEMY_H
+#include"EnemyObejct.h"
 
-
-class Marineٍnemy {
+class Marineٍnemy : public EnemyObejct{
 
 };
 

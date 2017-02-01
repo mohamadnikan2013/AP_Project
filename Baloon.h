@@ -4,9 +4,9 @@
 
 #ifndef RIVERRAIDPROJECT_BALOON_H
 #define RIVERRAIDPROJECT_BALOON_H
+#include"Marineٍnemy.h"
 
-
-class Baloon {
+class Baloon : public Marineٍnemy{
 
 };
 

@@ -4,9 +4,9 @@
 
 #ifndef RIVERRAIDPROJECT_TIME_H
 #define RIVERRAIDPROJECT_TIME_H
+#include<QTimer>
 
-
-class Time {
+class Time : public QTimer {
 
 };
 

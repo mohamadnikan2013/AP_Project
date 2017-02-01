@@ -4,9 +4,9 @@
 
 #ifndef RIVERRAIDPROJECT_ENEMYOBEJCT_H
 #define RIVERRAIDPROJECT_ENEMYOBEJCT_H
+#include"movingObject.h"
 
-
-class EnemyObejct {
+class EnemyObejct : public MovingObject{
 
 };
 

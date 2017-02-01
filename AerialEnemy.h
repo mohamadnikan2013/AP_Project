@@ -4,9 +4,9 @@
 
 #ifndef RIVERRAIDPROJECT_AERIALENEMY_H
 #define RIVERRAIDPROJECT_AERIALENEMY_H
+#include<EnemyObejct.h>
 
-
-class AerialEnemy {
+class AerialEnemy : public EnemyObejct{
 
 };
 
