@@ -14,4 +14,4 @@ class EnemyObejct : public MovingObject{
 };
 
 
-#endif //RIVERRAIDPROJECT_ENEMYOBEJCT_H
+#endif //ENEMYOBEJCT_H

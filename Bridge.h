@@ -14,4 +14,4 @@ class Bridge : MovingObject{
 };
 
 
-#endif //RIVERRAIDPROJECT_BRIDGE_H
+#endif //BRIDGE_H

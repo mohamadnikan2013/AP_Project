@@ -14,4 +14,4 @@ class Bullet : public MovingObject {
 };
 
 
-#endif //RIVERRAIDPROJECT_BULLET_H
+#endif //BULLET_H

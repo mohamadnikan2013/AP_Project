@@ -14,4 +14,4 @@ class MainJet : public Object {
 };
 
 
-#endif //RIVERRAIDPROJECT_MAINJET_H
+#endif //MAINJET_H

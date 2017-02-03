@@ -14,4 +14,4 @@ class Helicopter  : public AerialEnemy{
 };
 
 
-#endif //RIVERRAIDPROJECT_HELICOPTER_H
+#endif //HELICOPTER_H

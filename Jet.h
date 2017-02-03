@@ -14,4 +14,4 @@ class Jet : public AerialEnemy {
 };
 
 
-#endif //RIVERRAIDPROJECT_JET_H
+#endif //JET_H
