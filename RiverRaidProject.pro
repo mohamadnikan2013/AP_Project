@@ -18,7 +18,6 @@ SOURCES += main.cpp\
     Bridge.cpp \
     Bullet.cpp \
     DepotFuel.cpp \
-    EnemyObejct.cpp \
     Helicopter.cpp \
     Jet.cpp \
     MainJet.cpp \
@@ -28,7 +27,8 @@ SOURCES += main.cpp\
     Tanker.cpp \
     Wall.cpp \
     movingObject.cpp \
-    Timer.cpp
+    Timer.cpp \
+    EnemyObject.cpp
 
 HEADERS  += \
     AerialEnemy.h \
@@ -36,7 +36,6 @@ HEADERS  += \
     Bridge.h \
     Bullet.h \
     DepotFuel.h \
-    EnemyObejct.h \
     Helicopter.h \
     Jet.h \
     MainJet.h \
@@ -46,7 +45,8 @@ HEADERS  += \
     Tanker.h \
     Wall.h \
     movingObject.h \
-    Timer.h
+    Timer.h \
+    EnemyObject.h
 
 DISTFILES += \
     RiverRaidProject.pro.user

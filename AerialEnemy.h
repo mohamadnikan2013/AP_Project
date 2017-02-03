@@ -2,13 +2,16 @@
 // Created by nikang on 1/31/17.
 //
 
-#ifndef RIVERRAIDPROJECT_AERIALENEMY_H
-#define RIVERRAIDPROJECT_AERIALENEMY_H
-#include<EnemyObejct.h>
+#ifndef AERIALENEMY_H
+#define AERIALENEMY_H
+
+#include<EnemyObject.h>
+
+class EnemyObejct;
 
 class AerialEnemy : public EnemyObejct{
 
 };
 
 
-#endif //RIVERRAIDPROJECT_AERIALENEMY_H
+#endif //AERIALENEMY_H

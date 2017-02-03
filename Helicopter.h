@@ -2,9 +2,12 @@
 // Created by nikang on 1/30/17.
 //
 
-#ifndef RIVERRAIDPROJECT_HELICOPTER_H
-#define RIVERRAIDPROJECT_HELICOPTER_H
+#ifndef HELICOPTER_H
+#define HELICOPTER_H
+
 #include"AerialEnemy.h"
+
+class AerialEnemy;
 
 class Helicopter  : public AerialEnemy{
 

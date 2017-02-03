@@ -2,9 +2,12 @@
 // Created by nikang on 1/30/17.
 //
 
-#ifndef RIVERRAIDPROJECT_MAINJET_H
-#define RIVERRAIDPROJECT_MAINJET_H
+#ifndef MAINJET_H
+#define MAINJET_H
+
 #include"Object.h"
+
+class Object;
 
 class MainJet : public Object {
 

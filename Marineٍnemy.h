@@ -2,13 +2,16 @@
 // Created by nikang on 1/31/17.
 //
 
-#ifndef RIVERRAIDPROJECT_MARINEٍNEMY_H
-#define RIVERRAIDPROJECT_MARINEٍNEMY_H
-#include"EnemyObejct.h"
+#ifndef MARINEٍNEMY_H
+#define MARINEٍNEMY_H
+
+#include"EnemyObject.h"
+
+class EnemyObejct;
 
 class Marineٍnemy : public EnemyObejct{
 
 };
 
 
-#endif //RIVERRAIDPROJECT_MARINEٍNEMY_H
+#endif //MARINEٍNEMY_H

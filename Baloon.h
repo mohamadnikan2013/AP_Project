@@ -2,13 +2,16 @@
 // Created by nikang on 1/30/17.
 //
 
-#ifndef RIVERRAIDPROJECT_BALOON_H
-#define RIVERRAIDPROJECT_BALOON_H
+#ifndef BALOON_H
+#define BALOON_H
+
 #include"Marineٍnemy.h"
+
+class Marineٍnemy;
 
 class Baloon : public Marineٍnemy{
 
 };
 
 
-#endif //RIVERRAIDPROJECT_BALOON_H
+#endif //BALOON_H

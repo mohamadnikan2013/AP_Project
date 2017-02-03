@@ -2,10 +2,13 @@
 // Created by nikang on 1/30/17.
 //
 
-#ifndef RIVERRAIDPROJECT_BULLET_H
-#define RIVERRAIDPROJECT_BULLET_H
+#ifndef BULLET_H
+#define BULLET_H
 
 #include "movingObject.h"
+
+class MovingObject;
+
 class Bullet : public MovingObject {
 
 };

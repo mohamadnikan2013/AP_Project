@@ -2,8 +2,11 @@
 // Created by nikang on 1/30/17.
 //
 
-#ifndef RIVERRAIDPROJECT_DEPOTFUEL_H
-#define RIVERRAIDPROJECT_DEPOTFUEL_H
+#ifndef DEPOTFUEL_H
+#define DEPOTFUEL_H
+
+class MovingObject;
+
 #include"movingObject.h"
 
 class DepotFuel : MovingObject {

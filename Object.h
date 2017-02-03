@@ -2,13 +2,16 @@
 // Created by nikang on 1/30/17.
 //
 
-#ifndef RIVERRAIDPROJECT_OBJECT_H
-#define RIVERRAIDPROJECT_OBJECT_H
+#ifndef OBJECT_H
+#define OBJECT_H
+
 #include<QGraphicsRectItem>
+
+class QGraphicsRectItem;
 
 class Object : public QGraphicsRectItem{
 
 };
 
 
-#endif //RIVERRAIDPROJECT_OBJECT_H
+#endif //OBJECT_H
