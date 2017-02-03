@@ -14,4 +14,4 @@ class DepotFuel : MovingObject {
 };
 
 
-#endif //RIVERRAIDPROJECT_DEPOTFUEL_H
+#endif //DEPOTFUEL_H
