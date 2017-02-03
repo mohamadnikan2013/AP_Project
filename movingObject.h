@@ -8,8 +8,7 @@ class Object;
 class QObject;
 
 class MovingObject:public Object , public QObject{
-public:
-    MovingObject();
+
 };
 
 #endif // MOVINGOBJECT_H
