@@ -5,9 +5,9 @@
 #ifndef BALOON_H
 #define BALOON_H
 
-#include"Marineٍnemy.h"
+#include"Marinenemy"
 
-class Marineٍnemy;
+class Marinenemy;
 
 class Baloon : public Marineٍnemy{
 

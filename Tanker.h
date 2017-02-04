@@ -5,11 +5,11 @@
 #ifndef TANKER_H
 #define TANKER_H
 
-#include "Marineٍnemy.h"
+#include "Marinenemy.h"
 
-class Marineٍnemy;
+class Marinenemy;
 
-class Tanker : public Marineٍnemy {
+class Tanker : public Marinenemy {
 
 };
 
