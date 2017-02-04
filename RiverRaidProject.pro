@@ -21,7 +21,7 @@ SOURCES += main.cpp\
     Helicopter.cpp \
     Jet.cpp \
     MainJet.cpp \
-    Marineٍnemy.cpp \
+    Marinenemy.cpp \
     Object.cpp \
     Physics.cpp \
     Tanker.cpp \
@@ -39,7 +39,7 @@ HEADERS  += \
     Helicopter.h \
     Jet.h \
     MainJet.h \
-    Marineٍnemy.h \
+    Marinenemy.h \
     Object.h \
     Physics.h \
     Tanker.h \
