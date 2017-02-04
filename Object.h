@@ -7,7 +7,7 @@
 
 #include<QGraphicsPixmapItem>
 
-class QGraphicsRectItem;
+class QGraphicsPixmapItem;
 
 class Object : public QGraphicsPixmapItem{
 
