@@ -5,11 +5,11 @@
 #ifndef OBJECT_H
 #define OBJECT_H
 
-#include<QGraphicsRectItem>
+#include<QGraphicsPixmapItem>
 
 class QGraphicsRectItem;
 
-class Object : public QGraphicsRectItem{
+class Object : public QGraphicsPixmapItem{
 
 };
 
