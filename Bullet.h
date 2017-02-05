@@ -5,11 +5,11 @@
 #ifndef BULLET_H
 #define BULLET_H
 
-#include "movingObject.h"
+#include "Object.h"
 
-class MovingObject;
+class Object;
 
-class Bullet : public MovingObject {
+class Bullet : public Object {
 
 };
 

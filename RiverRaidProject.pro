@@ -23,7 +23,6 @@ SOURCES += main.cpp\
     MainJet.cpp \
     Marinenemy.cpp \
     Object.cpp \
-    Physics.cpp \
     Tanker.cpp \
     Wall.cpp \
     movingObject.cpp \
@@ -41,7 +40,6 @@ HEADERS  += \
     MainJet.h \
     Marinenemy.h \
     Object.h \
-    Physics.h \
     Tanker.h \
     Wall.h \
     movingObject.h \
