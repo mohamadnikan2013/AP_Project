@@ -10,7 +10,39 @@
 class QGraphicsPixmapItem;
 
 class Object : public QGraphicsPixmapItem{
+protected:
+    const double vX;
+    const double vY;
+    const double aX;
+    const double aY;
+    const int framesPerSecond;
+    int accelerateFramesX;
+    int accelerateFramesY;
 
+public:
+    Object(int framesPerSecond, double vX = 0, double vY = 0, double aX = 0, double aY = 0);
+
+    int getFramesPerSecond() const;
+
+    double getAY() const;
+
+    double getAX() const;
+
+    double getVY() const;
+
+    double getVX() const;
+
+    int getAccelerateFramesX() const;
+
+    void setAccelerateFramesX(int value);
+
+    int getAccelerateFramesY() const;
+
+    void setAccelerateFramesY(int value);
+
+    int getDeltaX();
+
+    int getDeltaY();
 };
 
 
