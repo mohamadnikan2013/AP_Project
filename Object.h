@@ -43,6 +43,8 @@ public:
     int getDeltaX();
 
     int getDeltaY();
+
+    virtual void advance(int phase);
 };
 
 

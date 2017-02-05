@@ -13,8 +13,11 @@ protected:
     const double aYScreen;
     const double maxVYScreen;
     int accelerateFramesYScreen;
+    const int score;
 public:
-    MovingObject(int framesPerSecond, double vYScreen, double aYScreen,double maxVYScreen, double vX = 0, double vY = 0, double aX = 0, double aY = 0);
+    MovingObject(int framesPerSecond, int score,  double vYScreen, double aYScreen,double maxVYScreen, double vX = 0, double vY = 0, double aX = 0, double aY = 0);
+    double getDeltaYScreen();
+    virtual void advance(int phase);
 };
 
 #endif // MOVINGOBJECT_H

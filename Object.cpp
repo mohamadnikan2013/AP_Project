@@ -65,3 +65,8 @@ int Object::getDeltaY()
 {
     return (vY + aY * accelerateFramesY) / framesPerSecond;
 }
+
+void Object::advance(int phase)
+{
+    setPos(mapToParent(getDeltaX(), getDeltaY()));
+}
