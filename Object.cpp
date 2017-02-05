@@ -27,6 +27,8 @@ void Object::setAccelerateFramesY(int value)
 
 Object::Object(int framesPerSecond, double vX, double vY, double aX, double aY) : framesPerSecond(framesPerSecond), vX(vX), vY(vY), aX(aX), aY(aY)
 {
+    accelerateFramesX = 0;
+    accelerateFramesY = 0;
 }
 
 int Object::getFramesPerSecond() const
