@@ -11,7 +11,7 @@ class Object;
 
 class Bullet : public Object {
 public:
-
+Bullet(double vY);
 };
 
 

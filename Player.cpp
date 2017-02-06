@@ -12,12 +12,14 @@ Player::Player()
 {
     QPixmap p(":/images/player.jpg");
     setPixmap(p.scaledToHeight(120));
+    height = p.height();
+    width = p.width();
 }
 void Player::keyPressEvent(QKeyEvent *event)
 {
     if(event->key() == Qt::Key_Space)
     {
-        Bullet * bullet = new Bullet();
+        Bullet * bullet = new Bullet(20);
         bullet->setPos(x()+width/2 , y());
         scene()->addItem(bullet);
         qDebug() << "bullet is created!";
