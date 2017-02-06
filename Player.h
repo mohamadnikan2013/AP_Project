@@ -15,11 +15,11 @@ public:
     void keyPressEvent(QKeyEvent * event);
     void keyReleaseEvent(QKeyEvent * event);
 private:
-    int height;
-    int width;
+    const int playerScaledOfImageHeight = 120;
+    const int playerScaledOfImageWidth = 120;
 public:
-    int getHeight();
-    int getWidth();
+    int getHeightScaled() const;
+    int getWidthScaled() const;
 };
 
 

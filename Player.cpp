@@ -10,23 +10,23 @@
 extern Game * game;
 Player::Player()
 {
-    QPixmap p(":/images/player.jpg");
+    QPixmap p(":/images/player.png");
     setPixmap(p.scaledToHeight(120));
-    height = p.height();
-    width = p.width();
+    qDebug() << QString::number(p.height());
+
 }
 void Player::keyPressEvent(QKeyEvent *event)
 {
     if(event->key() == Qt::Key_Space)
     {
         Bullet * bullet = new Bullet(20);
-        bullet->setPos(x()+width/2 , y());
+        bullet->setPos(300 , 300);
         scene()->addItem(bullet);
         qDebug() << "bullet is created!";
     }
     else if(event->key() == Qt::Key_Right)
     {
-
+    qDebug() << "right";
     }
     else if(event->key() == Qt::Key_Left)
     {
@@ -46,11 +46,11 @@ void Player::keyReleaseEvent(QKeyEvent *event)
 
 }
 
-int Player::getHeight()
+int Player::getHeightScaled() const
 {
-    return height;
+    return playerScaledOfImageHeight;
 }
-int Player::getWidth()
+int Player::getWidthScaled() const
 {
-    return width;
+    return playerScaledOfImageWidth;
 }

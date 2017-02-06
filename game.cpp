@@ -1,5 +1,7 @@
 #include "game.h"
-
+#include <QDebug>
+#include <QTimer>
+#include <QObject>
 Game::Game(int w, int h) : width(w), height(h)
 {
 
@@ -10,7 +12,8 @@ Game::Game(int w, int h) : width(w), height(h)
     setFixedSize(width , height);
     setScene(scene);
     player = new Player;
-    player->setPos(rect().width()/2 , rect().height() - player->getHeight());
+    player->setPos(rect().width()*0.45 ,  rect().height() - player->getHeightScaled());
+    qDebug() << rect().height();
     player->setFlag(QGraphicsItem::ItemIsFocusable);
     player->setFocus();
 
@@ -19,5 +22,8 @@ Game::Game(int w, int h) : width(w), height(h)
     scene->addItem(player);
     scene->addItem(score);
 
+    QTimer *timer = new QTimer();
+    QObject::connect(timer, SIGNAL(timeout()), scene, SLOT(advance()));
+    timer->start(1000 / 33);
 
 }
