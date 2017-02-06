@@ -20,13 +20,13 @@ void Player::keyPressEvent(QKeyEvent *event)
     if(event->key() == Qt::Key_Space)
     {
         Bullet * bullet = new Bullet(20);
-        bullet->setPos(300 , 300);
+        bullet->setPos(x() , y());
         scene()->addItem(bullet);
         qDebug() << "bullet is created!";
     }
     else if(event->key() == Qt::Key_Right)
     {
-    qDebug() << "right";
+
     }
     else if(event->key() == Qt::Key_Left)
     {

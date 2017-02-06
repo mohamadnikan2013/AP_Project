@@ -6,10 +6,12 @@
 #include <QDebug>
 #include "Bullet.h"
 #include "EnemyObject.h"
+#include <QDebug>
 Bullet::Bullet(double vY) : Object(0 , vY , 0 , 0)
 {
-    QPixmap p = QPixmap(":/images/bullet.jpg");
-    p.scaledToHeight(100);
+    QPixmap p = QPixmap(":/images/missile.png");
+    p.scaledToHeight(20);
+    setPixmap(p);
 }
 
 void Bullet::advance(int phase)
@@ -27,7 +29,9 @@ void Bullet::advance(int phase)
                   return ;
         }
     }
-    setPos(mapToParent(0, getDeltaY()));
+
+    qDebug() << x() <<" " << y() << " " << getDeltaY();
+    setPos(x() , y() - 20);
     if(y() < 0)
     {
         scene()->removeItem(this);

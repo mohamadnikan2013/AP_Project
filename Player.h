@@ -20,6 +20,7 @@ private:
 public:
     int getHeightScaled() const;
     int getWidthScaled() const;
+    //virtual void advance(int phase);
 };
 
 

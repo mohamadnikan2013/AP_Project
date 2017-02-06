@@ -24,6 +24,6 @@ Game::Game(int w, int h) : width(w), height(h)
 
     QTimer *timer = new QTimer();
     QObject::connect(timer, SIGNAL(timeout()), scene, SLOT(advance()));
-    timer->start(1000 / 33);
+    timer->start(1000);
 
 }
