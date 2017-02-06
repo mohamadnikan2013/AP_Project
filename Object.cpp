@@ -4,6 +4,7 @@
 
 #include "Object.h"
 
+int Object::framesPerSecond = 30;
 
 int Object::getAccelerateFramesX() const
 {
@@ -25,7 +26,7 @@ void Object::setAccelerateFramesY(int value)
     accelerateFramesY = value;
 }
 
-Object::Object(int framesPerSecond, double vX, double vY, double aX, double aY) : framesPerSecond(framesPerSecond), vX(vX), vY(vY), aX(aX), aY(aY)
+Object::Object(double vX, double vY, double aX, double aY) : vX(vX), vY(vY), aX(aX), aY(aY)
 {
     accelerateFramesX = 0;
     accelerateFramesY = 0;
@@ -34,6 +35,11 @@ Object::Object(int framesPerSecond, double vX, double vY, double aX, double aY) 
 int Object::getFramesPerSecond() const
 {
     return framesPerSecond;
+}
+
+int Object::setFramesPerSecond(int f)
+{
+    framesPerSecond = f;
 }
 
 double Object::getAY() const
@@ -56,12 +62,12 @@ double Object::getVX() const
     return vX;
 }
 
-int Object::getDeltaX()
+double Object::getDeltaX()
 {
     return (vX + aX * accelerateFramesX) / framesPerSecond;
 }
 
-int Object::getDeltaY()
+double Object::getDeltaY()
 {
     return (vY + aY * accelerateFramesY) / framesPerSecond;
 }

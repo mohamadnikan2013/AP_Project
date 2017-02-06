@@ -15,14 +15,18 @@ protected:
     const double vY;
     const double aX;
     const double aY;
-    const int framesPerSecond;
+
     int accelerateFramesX;
     int accelerateFramesY;
-
+    int a;
+private:
+    static int framesPerSecond;
 public:
-    Object(int framesPerSecond, double vX = 0, double vY = 0, double aX = 0, double aY = 0);
+    Object(double vX = 0, double vY = 0, double aX = 0, double aY = 0);
 
     int getFramesPerSecond() const;
+
+    int setFramesPerSecond(int f);
 
     double getAY() const;
 
@@ -40,12 +44,11 @@ public:
 
     void setAccelerateFramesY(int value);
 
-    int getDeltaX();
+    double getDeltaX();
 
-    int getDeltaY();
+    double getDeltaY();
 
     virtual void advance(int phase);
 };
-
 
 #endif //OBJECT_H

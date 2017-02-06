@@ -15,7 +15,7 @@ protected:
     int accelerateFramesYScreen;
     const int score;
 public:
-    MovingObject(int framesPerSecond, int score,  double vYScreen, double aYScreen,double maxVYScreen, double vX = 0, double vY = 0, double aX = 0, double aY = 0);
+    MovingObject(int score,  double vYScreen, double aYScreen,double maxVYScreen, double vX = 0, double vY = 0, double aX = 0, double aY = 0);
     double getDeltaYScreen();
     virtual void advance(int phase);
 };

@@ -20,14 +20,16 @@ SOURCES += main.cpp\
     DepotFuel.cpp \
     Helicopter.cpp \
     Jet.cpp \
-    MainJet.cpp \
     Marinenemy.cpp \
     Object.cpp \
     Tanker.cpp \
     Wall.cpp \
     movingObject.cpp \
     Timer.cpp \
-    EnemyObject.cpp
+    EnemyObject.cpp \
+    game.cpp \
+    Player.cpp \
+    score.cpp
 
 HEADERS  += \
     AerialEnemy.h \
@@ -37,14 +39,16 @@ HEADERS  += \
     DepotFuel.h \
     Helicopter.h \
     Jet.h \
-    MainJet.h \
     Marinenemy.h \
     Object.h \
     Tanker.h \
     Wall.h \
     movingObject.h \
     Timer.h \
-    EnemyObject.h
+    EnemyObject.h \
+    game.h \
+    Player.h \
+    score.h
 
 DISTFILES += \
     RiverRaidProject.pro.user

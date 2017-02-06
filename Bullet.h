@@ -10,6 +10,7 @@
 class Object;
 
 class Bullet : public Object {
+public:
 
 };
 
