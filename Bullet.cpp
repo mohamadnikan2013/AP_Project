@@ -9,13 +9,7 @@
 #include <QDebug>
 Bullet::Bullet(double vY) : Object(0 , vY , 0 , 0)
 {
-
-    QPixmap p = QPixmap(":/images/missile.png");
-    p.scaledToHeight(20);
-    setPixmap(p);
-
-
-
+    setPixmap(QPixmap(":/images/missile.png").scaledToHeight(20));
 }
 
 void Bullet::advance(int phase)
@@ -33,7 +27,6 @@ void Bullet::advance(int phase)
                   return ;
         }
     }
-
     qDebug() << x() <<" " << y() << " " << getDeltaY();
     setPos(x() , y() - 20);
     if(y() < 0)

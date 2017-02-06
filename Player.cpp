@@ -20,7 +20,7 @@ void Player::keyPressEvent(QKeyEvent *event)
     if(event->key() == Qt::Key_Space)
     {
         Bullet * bullet = new Bullet(20);
-        bullet->setPos(x() , y());
+        bullet->setPos(x() + this->pixmap().width() / 2 , y() - this->pixmap().height() / 2);
         scene()->addItem(bullet);
         qDebug() << "bullet is created!";
     }
