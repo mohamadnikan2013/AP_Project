@@ -8,7 +8,7 @@
 #include "EnemyObject.h"
 Bullet::Bullet(double vY) : Object(0 , vY , 0 , 0)
 {
-    QPixmap p = QPixmap(":/images/bullet.jpg");
+    QPixmap p = QPixmap(":/images/missile.jpg");
     p.scaledToHeight(100);
 }
 

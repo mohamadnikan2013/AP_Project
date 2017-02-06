@@ -8,5 +8,5 @@
 DepotFuel::DepotFuel(double vX, double vY, double aX, double aY)
     :MovingObject(150, vX, vY, aX, aY)
 {
-    this->setPixmap(QPixmap("file"));
+    this->setPixmap(QPixmap(":/images/fuelDepot.png"));
 }

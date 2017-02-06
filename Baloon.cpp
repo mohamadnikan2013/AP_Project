@@ -8,5 +8,5 @@
 Baloon::Baloon(double vX, double vY, double aX, double aY)
     : Marinenemy(60, vX, vY, aX, aY)
 {
-    this->setPixmap(QPixmap("file"));
+    this->setPixmap(QPixmap(":/images/balloon.png"));
 }
