@@ -1,6 +1,13 @@
 #include <iostream>
+#include <QApplication>
 
-int main() {
-    std::cout << "Hello, World!" << std::endl;
-    return 0;
+#include "game.h"
+
+Game * game;
+int main(int argc , char * argv[]) {
+    QApplication a(argc , argv);
+
+    game = new Game();
+    game->show();
+    return a.exec();
 }
