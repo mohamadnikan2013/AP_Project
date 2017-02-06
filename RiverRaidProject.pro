@@ -52,3 +52,7 @@ HEADERS  += \
 
 DISTFILES += \
     RiverRaidProject.pro.user
+
+RESOURCES += \
+    images.qrc \
+    sounds.qrc

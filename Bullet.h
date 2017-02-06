@@ -11,7 +11,9 @@ class Object;
 
 class Bullet : public Object {
 public:
-Bullet(double vY);
+
+    Bullet(double vY);
+    virtual void advance(int phase);
 };
 
 
