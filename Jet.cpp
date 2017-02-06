@@ -3,3 +3,10 @@
 //
 
 #include "Jet.h"
+
+
+Jet::Jet(double vX, double vY, double aX, double aY)
+    :AerialEnemy(100, vX, vY, aX, aY)
+{
+    this->setPixmap(QPixmap("file"));
+}

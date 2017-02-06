@@ -11,10 +11,10 @@ class QGraphicsPixmapItem;
 
 class Object : public QGraphicsPixmapItem{
 protected:
-    const double vX;
-    const double vY;
-    const double aX;
-    const double aY;
+    double vX;
+    double vY;
+    double aX;
+    double aY;
 
     int accelerateFramesX;
     int accelerateFramesY;
@@ -27,14 +27,6 @@ public:
     int getFramesPerSecond() const;
 
     int setFramesPerSecond(int f);
-
-    double getAY() const;
-
-    double getAX() const;
-
-    double getVY() const;
-
-    double getVX() const;
 
     int getAccelerateFramesX() const;
 
@@ -49,6 +41,14 @@ public:
     double getDeltaY();
 
     virtual void advance(int phase);
+    double getVX() const;
+    void setVX(double value);
+    double getVY() const;
+    void setVY(double value);
+    double getAX() const;
+    void setAX(double value);
+    double getAY() const;
+    void setAY(double value);
 };
 
 #endif //OBJECT_H

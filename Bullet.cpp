@@ -16,7 +16,7 @@ void Bullet::advance(int phase)
     QList<QGraphicsItem *> colliding_items = collidingItems();
     for(int i = 0 , n = colliding_items.size() ; i < n ; i++ )
     {
-        if(typeid(*(colliding_items[i])) == typeid(EnemyObejct))
+        if(typeid(*(colliding_items[i])) == typeid(EnemyObject))
          {
 
                   scene()->removeItem(colliding_items[i]);

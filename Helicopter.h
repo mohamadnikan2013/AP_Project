@@ -10,7 +10,8 @@
 class AerialEnemy;
 
 class Helicopter  : public AerialEnemy{
-
+public:
+    Helicopter(double vX = 0, double vY = 0, double aX = 0, double aY = 0);
 };
 
 

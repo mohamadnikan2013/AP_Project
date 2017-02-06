@@ -9,8 +9,9 @@
 
 class MovingObject;
 
-class EnemyObejct : public MovingObject{
-
+class EnemyObject : public MovingObject{
+public:
+    EnemyObject(int score, double vX = 0, double vY = 0, double aX = 0, double aY = 0);
 };
 
 

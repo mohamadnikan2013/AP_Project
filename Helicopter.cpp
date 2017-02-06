@@ -3,3 +3,10 @@
 //
 
 #include "Helicopter.h"
+
+
+Helicopter::Helicopter(double vX, double vY, double aX, double aY)
+    :AerialEnemy(60, vX, vY, aX, aY)
+{
+    this->setPixmap(QPixmap("file"));
+}

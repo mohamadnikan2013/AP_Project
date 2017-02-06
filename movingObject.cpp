@@ -1,8 +1,41 @@
 #include "movingObject.h"
 
+double MovingObject::vYScreen;
+double MovingObject::aYScreen;
+double MovingObject::maxVYScreen;
 
-MovingObject::MovingObject(int score, double vYScreen, double aYScreen, double maxVYScreen, double vX, double vY, double aX, double aY)
-    :vYScreen(vYScreen), score(score), aYScreen(aYScreen), maxVYScreen(maxVYScreen), Object(vX, vY, aX, aY)
+double MovingObject::getVYScreen()
+{
+    //return vYScreen;
+    return MovingObject::vYScreen;
+}
+
+void MovingObject::setVYScreen(double value)
+{
+    vYScreen = value;
+}
+
+double MovingObject::getAYScreen()
+{
+    return aYScreen;
+}
+
+void MovingObject::setAYScreen(double value)
+{
+    aYScreen = value;
+}
+
+double MovingObject::getMaxVYScreen()
+{
+    return maxVYScreen;
+}
+
+void MovingObject::setMaxVYScreen(double value)
+{
+    maxVYScreen = value;
+}
+MovingObject::MovingObject(int score, double vX, double vY, double aX, double aY)
+    : score(score), Object(vX, vY, aX, aY)
 {
     accelerateFramesYScreen = 0;
 }

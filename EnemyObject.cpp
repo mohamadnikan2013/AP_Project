@@ -3,3 +3,10 @@
 //
 
 #include "EnemyObject.h"
+
+
+EnemyObject::EnemyObject(int score, double vX, double vY, double aX, double aY)
+    :MovingObject(score, vX, vY, aX, aY)
+{
+
+}

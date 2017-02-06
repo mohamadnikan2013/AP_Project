@@ -10,7 +10,8 @@
 class MovingObject;
 
 class Wall :public MovingObject {
-
+public:
+    Wall(int width, int height);
 };
 
 

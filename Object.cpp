@@ -26,6 +26,46 @@ void Object::setAccelerateFramesY(int value)
     accelerateFramesY = value;
 }
 
+
+double Object::getVX() const
+{
+    return vX;
+}
+
+void Object::setVX(double value)
+{
+    vX = value;
+}
+
+double Object::getVY() const
+{
+    return vY;
+}
+
+void Object::setVY(double value)
+{
+    vY = value;
+}
+
+double Object::getAX() const
+{
+    return aX;
+}
+
+void Object::setAX(double value)
+{
+    aX = value;
+}
+
+double Object::getAY() const
+{
+    return aY;
+}
+
+void Object::setAY(double value)
+{
+    aY = value;
+}
 Object::Object(double vX, double vY, double aX, double aY) : vX(vX), vY(vY), aX(aX), aY(aY)
 {
     accelerateFramesX = 0;
@@ -40,26 +80,6 @@ int Object::getFramesPerSecond() const
 int Object::setFramesPerSecond(int f)
 {
     framesPerSecond = f;
-}
-
-double Object::getAY() const
-{
-    return aY;
-}
-
-double Object::getAX() const
-{
-    return aX;
-}
-
-double Object::getVY() const
-{
-    return vY;
-}
-
-double Object::getVX() const
-{
-    return vX;
 }
 
 double Object::getDeltaX()
