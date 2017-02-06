@@ -2,16 +2,26 @@
 #include <QDebug>
 #include <QTimer>
 #include <QObject>
+#include <movingObject.h>
 Game::Game(int w, int h) : width(w), height(h)
 {
-
+    int framesPerSecond = 30;
+    //Object::setFramesPerSecond(framesPerSecond);
     scene = new QGraphicsScene;
     scene->setSceneRect( 0 , 0 , width , height);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setFixedSize(width , height);
     setScene(scene);
-    player = new Player;
+    player = new Player(20);
+
+
+    player->setFramesPerSecond(framesPerSecond);
+    MovingObject::setVYScreen(20);
+    MovingObject::setAYScreen(5);
+    MovingObject::setMaxVYScreen(40);
+    MovingObject::setMinVYScreen(10);
+
     player->setPos(rect().width()*0.45 ,  rect().height() - player->getHeightScaled());
     qDebug() << rect().height();
     player->setFlag(QGraphicsItem::ItemIsFocusable);
@@ -24,6 +34,6 @@ Game::Game(int w, int h) : width(w), height(h)
 
     QTimer *timer = new QTimer();
     QObject::connect(timer, SIGNAL(timeout()), scene, SLOT(advance()));
-    timer->start(1000);
+    timer->start(1000 / framesPerSecond);
 
 }

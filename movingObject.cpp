@@ -3,6 +3,7 @@
 double MovingObject::vYScreen;
 double MovingObject::aYScreen;
 double MovingObject::maxVYScreen;
+double MovingObject::minVYScreen;
 
 double MovingObject::getVYScreen()
 {
@@ -33,6 +34,26 @@ double MovingObject::getMaxVYScreen()
 void MovingObject::setMaxVYScreen(double value)
 {
     maxVYScreen = value;
+}
+
+double MovingObject::getMinVYScreen()
+{
+    return minVYScreen;
+}
+
+void MovingObject::setMinVYScreen(double value)
+{
+    minVYScreen = value;
+}
+
+int MovingObject::getAccelerateFramesYScreen() const
+{
+    return accelerateFramesYScreen;
+}
+
+void MovingObject::setAccelerateFramesYScreen(int value)
+{
+    accelerateFramesYScreen = value;
 }
 MovingObject::MovingObject(int score, double vX, double vY, double aX, double aY)
     : score(score), Object(vX, vY, aX, aY)

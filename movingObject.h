@@ -12,6 +12,7 @@ protected:
     static double vYScreen;
     static double aYScreen;
     static double maxVYScreen;
+    static double minVYScreen;
     int accelerateFramesYScreen;
     const int score;
 public:
@@ -25,6 +26,10 @@ public:
     static void setAYScreen(double value);
     static double getMaxVYScreen();
     static void setMaxVYScreen(double value);
+    static double getMinVYScreen();
+    static void setMinVYScreen(double value);
+    int getAccelerateFramesYScreen() const;
+    void setAccelerateFramesYScreen(int value);
 };
 
 #endif // MOVINGOBJECT_H
