@@ -8,5 +8,8 @@
 Tanker::Tanker(double vX, double vY, double aX, double aY)
     :Marinenemy(30, vX, vY, aX, aY)
 {
-    this->setPixmap(QPixmap("file"));
+    if(vX > 0)
+        this->setPixmap(QPixmap(":/images/rightTanker.png"));
+    else
+        this->setPixmap(QPixmap(":/images/leftTanker.png"));
 }

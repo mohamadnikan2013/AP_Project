@@ -8,5 +8,8 @@
 Helicopter::Helicopter(double vX, double vY, double aX, double aY)
     :AerialEnemy(60, vX, vY, aX, aY)
 {
-    this->setPixmap(QPixmap("file"));
+    if(vX > 0)
+        this->setPixmap(QPixmap(":/images/rightHelicopter.png"));
+    else
+        this->setPixmap(QPixmap(":/images/leftHelicopter.png"));
 }

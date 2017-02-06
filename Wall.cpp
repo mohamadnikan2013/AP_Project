@@ -8,5 +8,5 @@
 Wall::Wall( int width, int height)
     :MovingObject(0, 0, 0, 0, 0)
 {
-    this->setPixmap(QPixmap("file").scaled(width, height));
+    this->setPixmap(QPixmap(":/images/green.png").scaled(width, height));
 }
