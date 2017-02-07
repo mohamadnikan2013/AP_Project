@@ -66,6 +66,12 @@ void Object::setAY(double value)
 {
     aY = value;
 }
+
+void Object::collideWithBullet()
+{
+
+}
+
 Object::Object(double vX, double vY, double aX, double aY) : vX(vX), vY(vY), aX(aX), aY(aY)
 {
     accelerateFramesX = 0;

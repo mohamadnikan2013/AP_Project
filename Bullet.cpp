@@ -6,6 +6,7 @@
 #include <QDebug>
 #include "Bullet.h"
 #include "EnemyObject.h"
+#include "Jet.h"
 #include <QDebug>
 Bullet::Bullet(double vY) : Object(0 , vY , 0 , 0)
 {
@@ -18,13 +19,14 @@ void Bullet::advance(int phase)
     QList<QGraphicsItem *> colliding_items = collidingItems();
     for(int i = 0 , n = colliding_items.size() ; i < n ; i++ )
     {
-        if(typeid(*(colliding_items[i])) == typeid(EnemyObject))
+        if(typeid(*(colliding_items[i])) == typeid(Jet))
         {
-                  scene()->removeItem(colliding_items[i]);
-                  scene()->removeItem(this);
-                  delete colliding_items[i];
-                  delete this ;
-                  return ;
+
+            qDebug() << "got here";
+            ((Object*)(colliding_items[i]))->collideWithBullet();
+            scene()->removeItem(this);
+            delete this;
+            return;
         }
     }
 //    qDebug() << x() <<" " << y() << " " << getDeltaY();

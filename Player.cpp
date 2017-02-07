@@ -15,7 +15,7 @@ Player::Player(double vX, double vY, double aX, double aY)
     :Object(vX, vY, aX, aY)
 {
     QPixmap p(":/images/player.png");
-    setPixmap(p.scaledToHeight(50));
+    setPixmap(p.scaledToHeight(80));
     qDebug() << QString::number(p.height());
 
 }
@@ -23,10 +23,10 @@ void Player::keyPressEvent(QKeyEvent *event)
 {
     if(event->key() == Qt::Key_Space)
     {
-        Bullet * bullet = new Bullet(-20);
+        Bullet * bullet = new Bullet(-200);
         bullet->setPos(x() + this->pixmap().width() / 2 - bullet->pixmap().width() / 2 , y() - bullet->pixmap().height() / 2);
         scene()->addItem(bullet);
-        qDebug() << "bullet is created!";
+//        qDebug() << "bullet is created!";
     }
 
     if(event->key() == Qt::Key_Right)
@@ -55,7 +55,7 @@ void Player::keyReleaseEvent(QKeyEvent *event)
 {
     if(event->key() == Qt::Key_Right || event->key() == Qt::Key_Left)
     {
-        qDebug() << "released";
+//        qDebug() << "released";
         direction = 0;
     }
 }
@@ -76,6 +76,7 @@ void Player::advance(int phase)
     {
         if(typeid(*(colliding_items[i])) == typeid(EnemyObject) || typeid(*(colliding_items[i])) == typeid(Wall))
         {
+
                   scene()->removeItem(this);
                   delete this;
                   return;

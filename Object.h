@@ -6,8 +6,10 @@
 #define OBJECT_H
 
 #include<QGraphicsPixmapItem>
+#include<QGraphicsScene>
 
 class QGraphicsPixmapItem;
+class QGraphicsScene;
 
 class Object : public QGraphicsPixmapItem{
 protected:
@@ -49,6 +51,7 @@ public:
     void setAX(double value);
     double getAY() const;
     void setAY(double value);
+    virtual void collideWithBullet();
 };
 
 #endif //OBJECT_H

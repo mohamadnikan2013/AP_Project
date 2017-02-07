@@ -12,6 +12,7 @@ class MovingObject;
 class EnemyObject : public MovingObject{
 public:
     EnemyObject(int score, double vX = 0, double vY = 0, double aX = 0, double aY = 0);
+    virtual void collideWithBullet();
 };
 
 

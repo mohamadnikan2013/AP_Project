@@ -10,3 +10,9 @@ EnemyObject::EnemyObject(int score, double vX, double vY, double aX, double aY)
 {
 
 }
+
+void EnemyObject::collideWithBullet()
+{
+    this->scene()->removeItem(this);
+    delete this;
+}

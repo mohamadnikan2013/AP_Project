@@ -13,9 +13,9 @@ Game::Game(int w, int h) : width(w), height(h)
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setFixedSize(width , height);
     setScene(scene);
-    player = new Player(20);
+    player = new Player(80);
 
-
+    setBackgroundBrush(QBrush("blue"));
     player->setFramesPerSecond(framesPerSecond);
     MovingObject::setVYScreen(20);
     MovingObject::setAYScreen(5);
@@ -26,6 +26,9 @@ Game::Game(int w, int h) : width(w), height(h)
     qDebug() << rect().height();
     player->setFlag(QGraphicsItem::ItemIsFocusable);
     player->setFocus();
+
+    Jet* jet = new Jet(20);
+    scene->addItem(jet);
 
     score = new Score;
 
