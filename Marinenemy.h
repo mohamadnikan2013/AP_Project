@@ -11,7 +11,7 @@ class EnemyObject;
 
 class Marinenemy : public EnemyObject{
 public:
-    Marinenemy(int score, double vX = 0, double vY = 0, double aX = 0, double aY = 0);
+    Marinenemy(int score, double vX = 0);
 };
 
 

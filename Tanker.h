@@ -11,7 +11,7 @@ class Marinenemy;
 
 class Tanker : public Marinenemy {
 public:
-    Tanker(double vX = 0, double vY = 0, double aX = 0, double aY = 0);
+    Tanker(double vX = 0);
 };
 
 
