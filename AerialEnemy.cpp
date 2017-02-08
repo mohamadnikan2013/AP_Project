@@ -5,8 +5,8 @@
 #include "AerialEnemy.h"
 
 
-AerialEnemy::AerialEnemy(int score, double vX, double vY, double aX, double aY)
-    : EnemyObject(score, vX, vY, aX, aY)
+AerialEnemy::AerialEnemy(int score, double vX)
+    : EnemyObject(score, vX)
 {
 
 }

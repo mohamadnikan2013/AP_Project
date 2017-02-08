@@ -11,7 +11,7 @@ class AerialEnemy;
 
 class Jet : public AerialEnemy {
 public:
-    Jet(double vX = 0, double vY = 0, double aX = 0, double aY = 0);
+    Jet(double vX = 0);
     ~Jet();
 };
 

@@ -11,13 +11,17 @@
 #include <QGraphicsScene>
 #include <typeinfo>
 extern Game * game;
-Player::Player(double vX, double vY, double aX, double aY)
-    :Object(vX, vY, aX, aY)
+Player::Player(double vX, double aX)
+    :Object(Physics(vX,  aX), Physics())
 {
-    QPixmap p(":/images/player.png");
-    setPixmap(p.scaledToHeight(80));
-    qDebug() << QString::number(p.height());
 
+    QPixmap p(":/images/player.png");
+    if(p.isNull())
+        qDebug() << "why";
+    setPixmap(QPixmap(":/images/player.png").scaledToHeight(80));
+    direction = 0;
+    upKeyPushed = false;
+    downKeyPushed = false;
 }
 void Player::keyPressEvent(QKeyEvent *event)
 {
@@ -55,6 +59,11 @@ void Player::keyReleaseEvent(QKeyEvent *event)
         downKeyPushed = false;
 }
 
+void Player::explode()
+{
+
+}
+
 int Player::getHeightScaled() const
 {
     return playerScaledOfImageHeight;
@@ -64,39 +73,41 @@ int Player::getWidthScaled() const
     return playerScaledOfImageWidth;
 }
 
+
 void Player::advance(int phase)
 {
     if(upKeyPushed)
     {
-        MovingObject dummy(0);
-        if(dummy.getVYScreen() + dummy.getAYScreen() * (dummy.getAccelerateFramesYScreen() + 1) <= dummy.getMaxVYScreen())
-            dummy.setAccelerateFramesYScreen(dummy.getAccelerateFramesYScreen() + 1);
+        MovingObject::screenPhysics().accelerate(1);
     }
 
     if(downKeyPushed)
     {
-        MovingObject dummy(0);
-        if(dummy.getVYScreen() + dummy.getAYScreen() * (dummy.getAccelerateFramesYScreen() + 1) >= dummy.getMinVYScreen())
-            dummy.setAccelerateFramesYScreen(dummy.getAccelerateFramesYScreen() - 1);
+        MovingObject::screenPhysics().accelerate(-1);
     }
     if(!upKeyPushed && !downKeyPushed)
     {
-        MovingObject dummy(0);
-        if(dummy.getAccelerateFramesYScreen() > 0)
-            dummy.setAccelerateFramesYScreen(dummy.getAccelerateFramesYScreen() - 1);
-        else if(dummy.getAccelerateFramesYScreen() < 0)
-            dummy.setAccelerateFramesYScreen(dummy.getAccelerateFramesYScreen() + 1);
+        if(MovingObject::screenPhysics().getAccelerattionFrames() > 0)
+            MovingObject::screenPhysics().accelerate(-1);
+        else if(MovingObject::screenPhysics().getAccelerattionFrames() < 0)
+            MovingObject::screenPhysics().accelerate(+1);
     }
-    setPos(x() + getDeltaX() * direction , y());
+    setPos(mapToParent(this->xPhys.movement() * direction, 0));
 
     QList<QGraphicsItem *> colliding_items = collidingItems();
     for(int i = 0 , n = colliding_items.size() ; i < n ; i++ )
     {
-        if(typeid(*(colliding_items[i])) == typeid(EnemyObject) || typeid(*(colliding_items[i])) == typeid(Wall))
+        if(((Object*)colliding_items[i])->isEnemy())
         {
-                  scene()->removeItem(this);
-                  delete this;
-                  return;
+            qDebug() << "player explode";
+            this->explode();
+            ((Object*)colliding_items[i])->explode();
+            return;
+        }
+        else if(typeid(*(colliding_items[i])) == typeid(Wall))
+        {
+            this->explode();
+            return;
         }
     }
 }

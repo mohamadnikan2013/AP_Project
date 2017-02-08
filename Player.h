@@ -20,9 +20,10 @@ public:
     int getHeightScaled() const;
     int getWidthScaled() const;
     virtual void advance(int phase);
-    Player(double vX, double vY = 0, double aX = 0, double aY = 0);
+    Player(double vX, double aX);
     void keyPressEvent(QKeyEvent * event);
     void keyReleaseEvent(QKeyEvent * event);
+    virtual void explode();
 };
 
 

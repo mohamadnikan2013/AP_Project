@@ -5,8 +5,8 @@
 #include "DepotFuel.h"
 
 
-DepotFuel::DepotFuel(double vX, double vY, double aX, double aY)
-    :MovingObject(150, vX, vY, aX, aY)
+DepotFuel::DepotFuel()
+    :MovingObject(150, Physics(), Physics())
 {
     this->setPixmap(QPixmap(":/images/fuelDepot.png"));
 }

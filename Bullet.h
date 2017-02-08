@@ -14,6 +14,7 @@ public:
 
     Bullet(double vY);
     virtual void advance(int phase);
+    virtual void explode();
 };
 
 

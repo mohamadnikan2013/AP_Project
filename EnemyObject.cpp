@@ -5,14 +5,19 @@
 #include "EnemyObject.h"
 
 
-EnemyObject::EnemyObject(int score, double vX, double vY, double aX, double aY)
-    :MovingObject(score, vX, vY, aX, aY)
+EnemyObject::EnemyObject(int score, double vX)
+    :MovingObject(score, Physics(vX), Physics())
 {
 
 }
 
-void EnemyObject::collideWithBullet()
+bool EnemyObject::isEnemy()
+{
+    return true;
+}
+
+void EnemyObject::explode()
 {
     this->scene()->removeItem(this);
-    delete this;
+    //delete this;
 }

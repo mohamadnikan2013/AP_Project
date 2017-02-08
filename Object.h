@@ -7,51 +7,29 @@
 
 #include<QGraphicsPixmapItem>
 #include<QGraphicsScene>
+#include"physics.h"
+
+#define inf 999999999
 
 class QGraphicsPixmapItem;
 class QGraphicsScene;
 
 class Object : public QGraphicsPixmapItem{
 protected:
-    double vX;
-    double vY;
-    double aX;
-    double aY;
-
-    int accelerateFramesX;
-    int accelerateFramesY;
+    Physics xPhys;
+    Physics yPhys;
     int a;
-private:
-    static int framesPerSecond;
 public:
-    Object(double vX = 0, double vY = 0, double aX = 0, double aY = 0);
+    Object(Physics xPhys, Physics yPhys);
 
     int getFramesPerSecond() const;
 
     int setFramesPerSecond(int f);
 
-    int getAccelerateFramesX() const;
-
-    void setAccelerateFramesX(int value);
-
-    int getAccelerateFramesY() const;
-
-    void setAccelerateFramesY(int value);
-
-    double getDeltaX();
-
-    double getDeltaY();
-
     virtual void advance(int phase);
-    double getVX() const;
-    void setVX(double value);
-    double getVY() const;
-    void setVY(double value);
-    double getAX() const;
-    void setAX(double value);
-    double getAY() const;
-    void setAY(double value);
-    virtual void collideWithBullet();
+
+    virtual bool isEnemy();
+    virtual void explode();
 };
 
 #endif //OBJECT_H

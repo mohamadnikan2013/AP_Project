@@ -11,7 +11,7 @@ class MovingObject;
 
 class DepotFuel : MovingObject {
 public:
-    DepotFuel(double vX = 0, double vY = 0, double aX = 0, double aY = 0);
+    DepotFuel();
 };
 
 

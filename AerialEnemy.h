@@ -11,7 +11,7 @@ class EnemyObject;
 
 class AerialEnemy : public EnemyObject{
 public:
-    AerialEnemy(int score, double vX = 0, double vY = 0, double aX = 0, double aY = 0);
+    AerialEnemy(int score, double vX = 0);
 };
 
 

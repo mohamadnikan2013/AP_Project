@@ -17,6 +17,8 @@ private:
     const int width;
 public:
     Game(int w = 800 , int h = 600);
+
+    void createMap(QGraphicsScene* scene, int y, int height, int road, int difficulty);
 };
 
 #endif // GAME_H

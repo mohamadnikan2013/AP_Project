@@ -5,8 +5,8 @@
 #include "Jet.h"
 
 
-Jet::Jet(double vX, double vY, double aX, double aY)
-    :AerialEnemy(100, vX, vY, aX, aY)
+Jet::Jet(double vX)
+    :AerialEnemy(100, vX)
 {
     if(vX > 0)
         this->setPixmap(QPixmap(":/images/rightJet.png").scaledToHeight(30));

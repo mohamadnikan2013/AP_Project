@@ -29,7 +29,8 @@ SOURCES += main.cpp\
     EnemyObject.cpp \
     game.cpp \
     Player.cpp \
-    score.cpp
+    score.cpp \
+    physics.cpp
 
 HEADERS  += \
     AerialEnemy.h \
@@ -48,7 +49,8 @@ HEADERS  += \
     EnemyObject.h \
     game.h \
     Player.h \
-    score.h
+    score.h \
+    physics.h
 
 DISTFILES += \
     RiverRaidProject.pro.user

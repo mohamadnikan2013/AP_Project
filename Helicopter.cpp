@@ -5,8 +5,8 @@
 #include "Helicopter.h"
 
 
-Helicopter::Helicopter(double vX, double vY, double aX, double aY)
-    :AerialEnemy(60, vX, vY, aX, aY)
+Helicopter::Helicopter(double vX)
+    :AerialEnemy(60, vX)
 {
     if(vX > 0)
         this->setPixmap(QPixmap(":/images/rightHelicopter.png"));
