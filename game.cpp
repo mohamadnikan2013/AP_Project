@@ -5,6 +5,7 @@
 #include <QObject>
 #include <movingObject.h>
 #include "Bullet.h"
+#include "Baloon.h"
 Game::Game(int w, int h) : width(w), height(h)
 {
     int framesPerSecond = 30;
@@ -24,13 +25,13 @@ Game::Game(int w, int h) : width(w), height(h)
     MovingObject::screenPhysics().setMinV(10);
 
 
-    player->setPos(rect().width()*0.45 ,  rect().height() - player->getHeightScaled());
+    player->setPos(rect().width()*0.45 ,  rect().height() - player->getHeight());
     qDebug() << player->x() << "  " << player->y();
     qDebug() << rect().height();
     player->setFlag(QGraphicsItem::ItemIsFocusable);
     player->setFocus();
 
-    Jet* jet = new Jet(20);
+    Baloon* jet = new Baloon(20);
     scene->addItem(jet);
 
     score = new Score;

@@ -9,8 +9,9 @@
 #include "Jet.h"
 #include <QDebug>
 
-Bullet::Bullet(double vY) : Object(Physics(), Physics(vY))
+Bullet::Bullet(Player* player, double vY) : Object(Physics(), Physics(vY))
 {
+    this->player = player;
     setPixmap(QPixmap(":/images/missile.png").scaledToHeight(10));
 }
 
@@ -31,16 +32,14 @@ void Bullet::advance(int phase)
         }
     }
 //    qDebug() << x() <<" " << y() << " " << getDeltaY();
-    setPos(x() , y() + yPhys.movement());
+    setPos(player->x() + player->getWidth() / 2 , y() + yPhys.movement());
     if(y() < 0)
-    {
-        scene()->removeItem(this);
-        delete this;
-    }
+        this->explode();
 }
 
 void Bullet::explode()
 {
+    player->setHasBullet(false);
     this->scene()->removeItem(this);
     delete this;
 }

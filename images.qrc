@@ -5,7 +5,6 @@
         <file>images/missile.png</file>
         <file>images/player.png</file>
         <file>images/rightRotatedPlayer.png</file>
-        <file>images/balloon.jpg</file>
         <file>images/blue.png</file>
         <file>images/fuelDepot.png</file>
         <file>images/green.gif</file>
@@ -15,5 +14,6 @@
         <file>images/rightHelicopter.gif</file>
         <file>images/rightJet.png</file>
         <file>images/rightTanker.png</file>
+        <file>images/balloon.png</file>
     </qresource>
 </RCC>

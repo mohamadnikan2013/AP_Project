@@ -11,19 +11,28 @@ class Object;
 
 class Player : public Object{
 private:
-    const int playerScaledOfImageHeight = 120;
-    const int playerScaledOfImageWidth = 120;
+    static int height;
+    static int width;
+
     int direction;
     bool upKeyPushed;
     bool downKeyPushed;
+    bool rightKeyPushed;
+    bool leftKeyPushed;
+
+    bool hasBullet;
 public:
-    int getHeightScaled() const;
-    int getWidthScaled() const;
     virtual void advance(int phase);
     Player(double vX, double aX);
     void keyPressEvent(QKeyEvent * event);
     void keyReleaseEvent(QKeyEvent * event);
     virtual void explode();
+    void setHasBullet(bool value);
+
+    static int getHeight();
+    static void setHeight(int value);
+    static int getWidth();
+    static void setWidth(int value);
 };
 
 

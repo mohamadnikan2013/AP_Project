@@ -6,13 +6,15 @@
 #define BULLET_H
 
 #include "Object.h"
+#include "Player.h"
 
 class Object;
+class Player;
 
 class Bullet : public Object {
+    Player* player;
 public:
-
-    Bullet(double vY);
+    Bullet(Player* player, double vY);
     virtual void advance(int phase);
     virtual void explode();
 };

@@ -11,48 +11,90 @@
 #include <QGraphicsScene>
 #include <typeinfo>
 extern Game * game;
+
+int Player::height = 80;
+int Player::width;
+
 Player::Player(double vX, double aX)
     :Object(Physics(vX,  aX), Physics())
 {
-
     QPixmap p(":/images/player.png");
-    if(p.isNull())
-        qDebug() << "why";
-    setPixmap(QPixmap(":/images/player.png").scaledToHeight(80));
+    p = p.scaledToHeight(height);
+    width = p.width();
+    setPixmap(p);
+
     direction = 0;
     upKeyPushed = false;
     downKeyPushed = false;
+    rightKeyPushed = false;
+    leftKeyPushed = false;
+    hasBullet = false;
 }
+
 void Player::keyPressEvent(QKeyEvent *event)
 {
-    if(event->key() == Qt::Key_Space)
+    if(event->isAutoRepeat())
+        return;
+    if(event->key() == Qt::Key_Space && !hasBullet)
     {
-        Bullet * bullet = new Bullet(-200);
+        Bullet * bullet = new Bullet(this, -400);
         bullet->setPos(x() + this->pixmap().width() / 2 - bullet->pixmap().width() / 2 , y() - bullet->pixmap().height() / 2);
         scene()->addItem(bullet);
+        hasBullet = true;
 //        qDebug() << "bullet is created!";
     }
-
     if(event->key() == Qt::Key_Right)
     {
+        rightKeyPushed = true;
+        if(direction != 1)
+            this->setPixmap(QPixmap(":/images/rightRotatedPlayer").scaledToHeight(80));
         direction = 1;
     }
-    else if(event->key() == Qt::Key_Left)
+    if(event->key() == Qt::Key_Left)
     {
+        leftKeyPushed = true;
+        if(direction != -1)
+            this->setPixmap(QPixmap(":/images/leftRotatedPlayer").scaledToHeight(80));
         direction = -1;
     }
-
     if(event->key() == Qt::Key_Up)
         upKeyPushed = true;
-    else if(event->key() == Qt::Key_Down)
+    if(event->key() == Qt::Key_Down)
         downKeyPushed = true;
 }
 void Player::keyReleaseEvent(QKeyEvent *event)
 {
-    if(event->key() == Qt::Key_Right || event->key() == Qt::Key_Left)
+    if(event->isAutoRepeat())
+        return;
+    if(event->key() == Qt::Key_Right)
     {
-        direction = 0;
+        rightKeyPushed = false;
+        if(!leftKeyPushed)
+        {
+            setPixmap(QPixmap(":/images/player.png").scaledToHeight(80));
+            direction = 0;
+        }
+        else
+        {
+            this->setPixmap(QPixmap(":/images/leftRotatedPlayer").scaledToHeight(height));
+            direction = -1;
+        }
     }
+    if(event->key() == Qt::Key_Left)
+    {
+        leftKeyPushed = false;
+        if(!rightKeyPushed)
+        {
+            setPixmap(QPixmap(":/images/player.png").scaledToHeight(height));
+            direction = 0;
+        }
+        else
+        {
+            this->setPixmap(QPixmap(":/images/rightRotatedPlayer").scaledToHeight(height));
+            direction = 1;
+        }
+    }
+    //if(!rightKeyPushed && !leftKeyPushed)
     if(event->key() == Qt::Key_Up)
         upKeyPushed = false;
     if(event->key() == Qt::Key_Down)
@@ -61,19 +103,33 @@ void Player::keyReleaseEvent(QKeyEvent *event)
 
 void Player::explode()
 {
-
 }
 
-int Player::getHeightScaled() const
+void Player::setHasBullet(bool value)
 {
-    return playerScaledOfImageHeight;
+    hasBullet = value;
 }
-int Player::getWidthScaled() const
+
+
+int Player::getHeight()
 {
-    return playerScaledOfImageWidth;
+    return height;
 }
 
+void Player::setHeight(int value)
+{
+    height = value;
+}
 
+int Player::getWidth()
+{
+    return width;
+}
+
+void Player::setWidth(int value)
+{
+    width = value;
+}
 void Player::advance(int phase)
 {
     if(upKeyPushed)
