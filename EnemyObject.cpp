@@ -21,3 +21,8 @@ void EnemyObject::explode()
     this->scene()->removeItem(this);
     //delete this;
 }
+
+QPointF EnemyObject::getPos()
+{
+    return this->pos();
+}
