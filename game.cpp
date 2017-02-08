@@ -37,6 +37,7 @@ Game::Game(int w, int h) : width(w), height(h) {
     jet->setPos(rect().width()*.2,rect().width()*.2);
     jet->setFlag(QGraphicsItem::ItemIsFocusable);
     jet->setFocus();
+    qDebug()<<jet->pos();
 
     scene->addItem(jet);
 //    scene->addItem(baloon);
@@ -51,7 +52,9 @@ Game::Game(int w, int h) : width(w), height(h) {
 }
 
 void Game::create_enemies() {
+    while (!this->is_finished) {
 
+    }
 }
 
 void Game::create_map() {
