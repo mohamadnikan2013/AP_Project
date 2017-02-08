@@ -29,8 +29,6 @@ Game::Game(int w, int h) : width(w), height(h) {
 
 
     player->setPos(rect().width()*0.45 ,  rect().height() - player->getHeight());
-    player->setPos(rect().width() * 0.45, rect().height() - player->getHeight());
-
     qDebug() << player->x() << "  " << player->y();
     qDebug() << rect().height();
     player->setFlag(QGraphicsItem::ItemIsFocusable);
@@ -49,7 +47,7 @@ Game::Game(int w, int h) : width(w), height(h) {
 
     scene->addItem(player);
     scene->addItem(score);
-
+//qDebug()<< random();
     QTimer *timer = new QTimer();
     QObject::connect(timer, SIGNAL(timeout()), scene, SLOT(advance()));
     QObject::connect(timer, SIGNAL(timeout()), this, SLOT(create_enemies()));
@@ -58,9 +56,38 @@ Game::Game(int w, int h) : width(w), height(h) {
 }
 
 void Game::create_enemies() {
-    while (!this->is_finished) {
-
+    int rand = 2;
+    EnemyObject *enemy;
+    QList<QGraphicsItem *> colliding_items;
+    switch (rand) {
+    case 1:
+        enemy = new Baloon();
+        do {
+         enemy->setPos(rect().width()*(0.2) ,  rect().height());
+         colliding_items =   enemy->collidingItems();
+        } while (!colliding_items.isEmpty());
+        break;
+    case 2:
+        enemy = new Jet();
+        enemy->setPos(rect().width()*(0.2) ,  rect().height());
+        break;
+    case 3:
+        enemy = new Helicopter();
+        enemy->setPos(rect().width()*(0.2) ,  rect().height());
+        break;
+    case 4:
+        enemy = new Tanker();
+        do {
+         enemy->setPos(rect().width()*(0.2) ,  rect().height());
+         colliding_items =   enemy->collidingItems();
+        } while (!colliding_items.isEmpty());
+        break;
+    default:
+        return;
     }
+    player->setFlag(QGraphicsItem::ItemIsFocusable);
+    player->setFocus();
+    scene->addItem(enemy);
 }
 
 void Game::create_map() {
