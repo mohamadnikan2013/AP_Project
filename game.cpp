@@ -29,22 +29,22 @@ Game::Game(int w, int h) : width(w), height(h) {
 
 
     player->setPos(rect().width()*0.45 ,  rect().height() - player->getHeight());
-    player->setPos(rect().width() * 0.45, rect().height() - player->getHeightScaled());
+    player->setPos(rect().width() * 0.45, rect().height() - player->getHeight());
 
     qDebug() << player->x() << "  " << player->y();
     qDebug() << rect().height();
     player->setFlag(QGraphicsItem::ItemIsFocusable);
     player->setFocus();
 
-    Baloon* jet = new Baloon(20);
-    scene->addItem(jet);
-    EnemyObject *jet = new Jet(20);
-    jet->setPos(rect().width()*.2,rect().width()*.2);
-    jet->setFlag(QGraphicsItem::ItemIsFocusable);
-    jet->setFocus();
-    qDebug()<<jet->pos();
+//    Baloon* jet = new Baloon(20);
+//    scene->addItem(jet);
+//    EnemyObject *jet = new Jet(20);
+//    jet->setPos(rect().width()*.2,rect().width()*.2);
+//    jet->setFlag(QGraphicsItem::ItemIsFocusable);
+//    jet->setFocus();
+//    qDebug()<<jet->pos();
 
-    scene->addItem(jet);
+//    scene->addItem(jet);
     score = new Score;
 
     scene->addItem(player);
@@ -52,6 +52,8 @@ Game::Game(int w, int h) : width(w), height(h) {
 
     QTimer *timer = new QTimer();
     QObject::connect(timer, SIGNAL(timeout()), scene, SLOT(advance()));
+    QObject::connect(timer, SIGNAL(timeout()), this, SLOT(create_enemies()));
+    QObject::connect(timer, SIGNAL(timeout()), this, SLOT(create_map()));
     timer->start(1000 / framesPerSecond);
 }
 
