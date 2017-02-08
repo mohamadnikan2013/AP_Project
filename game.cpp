@@ -6,7 +6,7 @@
 #include <movingObject.h>
 #include "Bullet.h"
 #include "Baloon.h"
-
+#include"Wall.h"
 #include "Tanker.h"
 #include "Helicopter.h"
 
@@ -34,20 +34,24 @@ Game::Game(int w, int h) : width(w), height(h) {
     player->setFlag(QGraphicsItem::ItemIsFocusable);
     player->setFocus();
 
-//    Baloon* jet = new Baloon(20);
-//    scene->addItem(jet);
-//    EnemyObject *jet = new Jet(20);
-//    jet->setPos(rect().width()*.2,rect().width()*.2);
-//    jet->setFlag(QGraphicsItem::ItemIsFocusable);
-//    jet->setFocus();
-//    qDebug()<<jet->pos();
-
-//    scene->addItem(jet);
+    Baloon* jet = new Baloon(20);
+    scene->addItem(jet);
+    jet->setPos(rect().width()*.2,rect().width()*.2);
+    jet->setFlag(QGraphicsItem::ItemIsFocusable);
+    jet->setFocus();
+    qDebug()<<jet->pos();
+    Wall * wall = new Wall(100,100);
+    qDebug()<<"added";
+    wall->setPos(rect().width()*.8,rect().width()*.8);
+    wall->setFlag(QGraphicsItem::ItemIsFocusable);
+    wall->setFocus();
+    scene->addItem(jet);
+    scene->addItem(wall);
     score = new Score;
 
     scene->addItem(player);
     scene->addItem(score);
-//qDebug()<< random();
+//qDebug()<< qrand();
     QTimer *timer = new QTimer();
     QObject::connect(timer, SIGNAL(timeout()), scene, SLOT(advance()));
     QObject::connect(timer, SIGNAL(timeout()), this, SLOT(create_enemies()));
@@ -91,5 +95,6 @@ void Game::create_enemies() {
 }
 
 void Game::create_map() {
+//    wall * wall = new Wall();
 
 }
