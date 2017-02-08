@@ -18,8 +18,8 @@ Game::Game(int w, int h) : width(w), height(h)
     setBackgroundBrush(QBrush("blue"));
     player->setFramesPerSecond(framesPerSecond);
     MovingObject::setVYScreen(20);
-    MovingObject::setAYScreen(5);
-    MovingObject::setMaxVYScreen(40);
+    MovingObject::setAYScreen(10);
+    MovingObject::setMaxVYScreen(80);
     MovingObject::setMinVYScreen(10);
 
     player->setPos(rect().width()*0.45 ,  rect().height() - player->getHeightScaled());
