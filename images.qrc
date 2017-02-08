@@ -15,5 +15,6 @@
         <file>images/rightJet.png</file>
         <file>images/rightTanker.png</file>
         <file>images/balloon.png</file>
+        <file>images/balloon.jpg</file>
     </qresource>
 </RCC>
