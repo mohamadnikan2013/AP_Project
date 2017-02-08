@@ -6,7 +6,7 @@
 #define ENEMYOBEJCT_H
 
 #include"movingObject.h"
-
+#include<QPointF>
 class MovingObject;
 
 class EnemyObject : public MovingObject{
@@ -15,6 +15,7 @@ public:
 
     virtual bool isEnemy();
     virtual void explode();
+    QPointF getPos();
 
 };
 
