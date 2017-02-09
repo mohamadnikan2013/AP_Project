@@ -22,6 +22,8 @@ Player::Player(double vX, double aX)
     width = p.width();
     setPixmap(p);
 
+    this->setZValue(20);
+
     direction = 0;
     upKeyPushed = false;
     downKeyPushed = false;

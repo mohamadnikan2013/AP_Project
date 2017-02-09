@@ -25,5 +25,6 @@
         <file>images/leftBalloon.png</file>
         <file>images/rightBalloon.png</file>
         <file>images/fuelIndicator.png</file>
+        <file>images/water.jpg</file>
     </qresource>
 </RCC>

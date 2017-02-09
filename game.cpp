@@ -33,7 +33,7 @@ Game::Game(int w, int h) : width(w), height(h) {
     scene->addItem(fuelIndicator);
 
 
-    player->setPos(rect().width() * 0.45, rect().height() - player->getHeight());
+    player->setPos(rect().width() / 2 - player->getWidth() / 2, (rect().height() - player->getHeight()) * 5 / 6);
     qDebug() << player->x() << "  " << player->y();
     qDebug() << rect().height();
     player->setFlag(QGraphicsItem::ItemIsFocusable);
@@ -115,6 +115,14 @@ void Game::create_enemies() {
 //    player->setFlag(QGraphicsItem::ItemIsFocusable);
   //  player->setFocus();
     scene->addItem(enemy);
+}
+
+void Game::drawBackground(QPainter *painter, const QRectF &rect)
+{
+    QPixmap pixmap(":/images/water.jpg");
+    for(double x = 0; x < this->width; x += pixmap.width())
+        for(double y = 0; y < this->height; y += pixmap.height())
+            painter->drawPixmap(x, y, pixmap.width(), pixmap.height(), pixmap);
 }
 
 void Game::create_map() {

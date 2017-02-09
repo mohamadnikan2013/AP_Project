@@ -23,7 +23,7 @@ private:
     bool is_finished;
 
 public:
-    Game(int w = 900, int h = 550);
+    Game(int w = 900, int h = 600);
 
 public
     Q_SLOTS:
@@ -34,6 +34,8 @@ public
     void create_map();
 
     void create_enemies();
+
+    virtual void drawBackground(QPainter *painter, const QRectF &rect);
 };
 
 #endif // GAME_H
