@@ -16,5 +16,11 @@
         <file>images/rightTanker.png</file>
         <file>images/balloon.png</file>
         <file>images/balloon.jpg</file>
+        <file>images/explode1.jpg</file>
+        <file>images/explode2.jpg</file>
+        <file>images/explode3.jpg</file>
+        <file>images/explode4.jpg</file>
+        <file>images/explode5.jpg</file>
+        <file>images/explode6.jpg</file>
     </qresource>
 </RCC>

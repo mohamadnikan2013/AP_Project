@@ -1,3 +1,7 @@
 <RCC>
-    <qresource prefix="/sounds"/>
+    <qresource prefix="/">
+        <file>sounds/boom.wav</file>
+        <file>sounds/fire.wav</file>
+        <file>sounds/fire2.wav</file>
+    </qresource>
 </RCC>
