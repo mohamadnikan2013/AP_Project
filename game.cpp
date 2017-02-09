@@ -6,10 +6,7 @@
 #include <movingObject.h>
 #include "Bullet.h"
 #include "Baloon.h"
-<<<<<<< HEAD
-=======
 #include"Wall.h"
->>>>>>> 871b6673e634db03b3d5aa0ab6c47fc371956e15
 #include "Tanker.h"
 #include "Helicopter.h"
 #include "DepotFuel.h"

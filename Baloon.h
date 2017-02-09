@@ -11,7 +11,7 @@ class Marinenemy;
 
 class Baloon : public Marinenemy{
 public:
-    Baloon(double vX = 0, double vY = 0, double aX = 0, double aY = 0);
+    Baloon(double vX = 0);
 };
 
 
