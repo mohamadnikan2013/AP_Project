@@ -6,6 +6,10 @@
 #include <movingObject.h>
 #include "Bullet.h"
 #include "Baloon.h"
+<<<<<<< HEAD
+=======
+#include"Wall.h"
+>>>>>>> 871b6673e634db03b3d5aa0ab6c47fc371956e15
 #include "Tanker.h"
 #include "Helicopter.h"
 #include "DepotFuel.h"
@@ -28,26 +32,49 @@ Game::Game(int w, int h) : width(w), height(h) {
     MovingObject::screenPhysics().setMinV(10);
 
 
-    player->setPos(rect().width()*0.45 ,  rect().height() - player->getHeight());
+    player->setPos(rect().width() * 0.45, rect().height() - player->getHeight());
     qDebug() << player->x() << "  " << player->y();
     qDebug() << rect().height();
     player->setFlag(QGraphicsItem::ItemIsFocusable);
     player->setFocus();
 
-//    Baloon* jet = new Baloon(20);
+    Baloon *jet = new Baloon(20);
+    scene->addItem(jet);
+    jet->setPos(rect().width() * .2, rect().width() * .2);
+    jet->setFlag(QGraphicsItem::ItemIsFocusable);
+    jet->setFocus();
+    qDebug() << jet->pos();
+//    Wall * wall = new Wall(150,10);
+//    qDebug()<<"added";
+//    wall->setPos(rect().width()-150,rect().height()-600);
+//    wall->setFlag(QGraphicsItem::ItemIsFocusable);
+//    wall->setFocus();
 //    scene->addItem(jet);
-//    EnemyObject *jet = new Jet(20);
-//    jet->setPos(rect().width()*.2,rect().width()*.2);
-//    jet->setFlag(QGraphicsItem::ItemIsFocusable);
-//    jet->setFocus();
-//    qDebug()<<jet->pos();
-
-//    scene->addItem(jet);
+//    scene->addItem(wall);
     score = new Score;
 
     scene->addItem(player);
     scene->addItem(score);
-//qDebug()<< random();
+
+
+    int rand1 = 10;
+    int rand2 = 20;
+    int height = 20;
+    Wall *walll = new Wall(rand1, height);
+    Wall *wallr = new Wall(rand2, height);
+    walll->setPos(rect().width() - this->width, rect().height() - this->height);
+    walll->setFlag(QGraphicsItem::ItemIsFocusable);
+    walll->setFocus();
+    wallr->setPos(rect().width() - rand2, rect().height() - this->height);
+    wallr->setFlag(QGraphicsItem::ItemIsFocusable);
+    wallr->setFocus();
+    scene->addItem(walll);
+    scene->addItem(wallr);
+
+
+
+
+//qDebug()<< qrand();
     QTimer *timer = new QTimer();
     QObject::connect(timer, SIGNAL(timeout()), scene, SLOT(advance()));
     QObject::connect(timer, SIGNAL(timeout()), this, SLOT(create_enemies()));
@@ -55,35 +82,40 @@ Game::Game(int w, int h) : width(w), height(h) {
     timer->start(1000 / framesPerSecond);
 }
 
+void Game::advance() {
+    qDebug() << "here";
+    this->create_enemies();
+}
+
 void Game::create_enemies() {
     int rand = 2;
     EnemyObject *enemy;
-    QList<QGraphicsItem *> colliding_items;
+    QList < QGraphicsItem * > colliding_items;
     switch (rand) {
-    case 1:
-        enemy = new Baloon();
-        do {
-         enemy->setPos(rect().width()*(0.2) ,  rect().height());
-         colliding_items =   enemy->collidingItems();
-        } while (!colliding_items.isEmpty());
-        break;
-    case 2:
-        enemy = new Jet();
-        enemy->setPos(rect().width()*(0.2) ,  rect().height());
-        break;
-    case 3:
-        enemy = new Helicopter();
-        enemy->setPos(rect().width()*(0.2) ,  rect().height());
-        break;
-    case 4:
-        enemy = new Tanker();
-        do {
-         enemy->setPos(rect().width()*(0.2) ,  rect().height());
-         colliding_items =   enemy->collidingItems();
-        } while (!colliding_items.isEmpty());
-        break;
-    default:
-        return;
+        case 1:
+            enemy = new Baloon();
+            do {
+                enemy->setPos(rect().width() * (0.2), rect().height());
+                colliding_items = enemy->collidingItems();
+            } while (!colliding_items.isEmpty());
+            break;
+        case 2:
+            enemy = new Jet();
+            enemy->setPos(rect().width() * (0.2), rect().height());
+            break;
+        case 3:
+            enemy = new Helicopter();
+            enemy->setPos(rect().width() * (0.2), rect().height());
+            break;
+        case 4:
+            enemy = new Tanker();
+            do {
+                enemy->setPos(rect().width() * (0.2), rect().height());
+                colliding_items = enemy->collidingItems();
+            } while (!colliding_items.isEmpty());
+            break;
+        default:
+            return;
     }
     player->setFlag(QGraphicsItem::ItemIsFocusable);
     player->setFocus();
@@ -91,5 +123,17 @@ void Game::create_enemies() {
 }
 
 void Game::create_map() {
-
+    int rand1 = 10;
+    int rand2 = 20;
+    int height = 20;
+    Wall *walll = new Wall(rand1, height);
+    Wall *wallr = new Wall(rand2, height);
+    walll->setPos(rect().width() - this->width, rect().height() - this->height);
+    walll->setFlag(QGraphicsItem::ItemIsFocusable);
+    walll->setFocus();
+    wallr->setPos(rect().width() - rand2, rect().height() - this->height);
+    wallr->setFlag(QGraphicsItem::ItemIsFocusable);
+    wallr->setFocus();
+    scene->addItem(walll);
+    scene->addItem(wallr);
 }
