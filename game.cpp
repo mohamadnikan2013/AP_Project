@@ -28,8 +28,8 @@ Game::Game(int w, int h) : width(w), height(h) {
     MovingObject::screenPhysics().setMaxV(80);
     MovingObject::screenPhysics().setMinV(10);
 
-    fuelIndicator = new FuelIndicator(framesPerSecond, 100);
-    fuelIndicator->setPos(0, this->height - 100);
+    fuelIndicator = new FuelIndicator(framesPerSecond, 90);
+    fuelIndicator->setPos(0, this->height - 90);
     scene->addItem(fuelIndicator);
 
 
@@ -116,15 +116,17 @@ void Game::create_enemies() {
   //  player->setFocus();
     scene->addItem(enemy);
 }
-
+/*
 void Game::drawBackground(QPainter *painter, const QRectF &rect)
 {
     QPixmap pixmap(":/images/water.jpg");
     for(double x = 0; x < this->width; x += pixmap.width())
         for(double y = 0; y < this->height; y += pixmap.height())
             painter->drawPixmap(x, y, pixmap.width(), pixmap.height(), pixmap);
+    static int num = 1;
+    qDebug() << "background over " << num++;
 }
-
+*/
 void Game::create_map() {
     int rand1 = 10;
     int rand2 = 20;

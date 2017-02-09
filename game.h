@@ -35,7 +35,7 @@ public
 
     void create_enemies();
 
-    virtual void drawBackground(QPainter *painter, const QRectF &rect);
+    //virtual void drawBackground(QPainter *painter, const QRectF &rect);
 };
 
 #endif // GAME_H
