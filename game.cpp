@@ -53,6 +53,23 @@ Game::Game(int w, int h) : width(w), height(h) {
     scene->addItem(score);
 
 
+    int rand1 = 10;
+    int rand2 = 20;
+    int height = 20;
+    Wall *walll = new Wall(rand1, height);
+    Wall *wallr = new Wall(rand2, height);
+    walll->setPos(rect().width() - this->width, rect().height() - this->height);
+    walll->setFlag(QGraphicsItem::ItemIsFocusable);
+    walll->setFocus();
+    wallr->setPos(rect().width() - rand2, rect().height() - this->height);
+    wallr->setFlag(QGraphicsItem::ItemIsFocusable);
+    wallr->setFocus();
+    scene->addItem(walll);
+    scene->addItem(wallr);
+
+
+
+
 //qDebug()<< qrand();
     QTimer *timer = new QTimer();
     QObject::connect(timer, SIGNAL(timeout()), scene, SLOT(advance()));
