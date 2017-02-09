@@ -38,8 +38,6 @@ Game::Game(int w, int h) : width(w), height(h) {
     Baloon *jet = new Baloon(20);
     scene->addItem(jet);
     jet->setPos(rect().width() * .2, rect().width() * .2);
-    jet->setFlag(QGraphicsItem::ItemIsFocusable);
-    jet->setFocus();
     qDebug() << jet->pos();
 //    Wall * wall = new Wall(150,10);
 //    qDebug()<<"added";
@@ -60,11 +58,7 @@ Game::Game(int w, int h) : width(w), height(h) {
     Wall *walll = new Wall(rand1, height);
     Wall *wallr = new Wall(rand2, height);
     walll->setPos(rect().width() - this->width, rect().height() - this->height);
-    walll->setFlag(QGraphicsItem::ItemIsFocusable);
-    walll->setFocus();
-    wallr->setPos(rect().width() - rand2, rect().height() - this->height);
-    wallr->setFlag(QGraphicsItem::ItemIsFocusable);
-    wallr->setFocus();
+    wallr->setPos(rect().width() - rand2, rect().height() - this->height);;
     scene->addItem(walll);
     scene->addItem(wallr);
 
@@ -78,12 +72,12 @@ Game::Game(int w, int h) : width(w), height(h) {
     QObject::connect(timer, SIGNAL(timeout()), this, SLOT(create_map()));
     timer->start(1000 / framesPerSecond);
 }
-
+/*
 void Game::advance() {
     qDebug() << "here";
     this->create_enemies();
 }
-
+*/
 void Game::create_enemies() {
     int rand = 2;
     EnemyObject *enemy;
@@ -114,8 +108,8 @@ void Game::create_enemies() {
         default:
             return;
     }
-    player->setFlag(QGraphicsItem::ItemIsFocusable);
-    player->setFocus();
+//    player->setFlag(QGraphicsItem::ItemIsFocusable);
+  //  player->setFocus();
     scene->addItem(enemy);
 }
 
@@ -126,11 +120,7 @@ void Game::create_map() {
     Wall *walll = new Wall(rand1, height);
     Wall *wallr = new Wall(rand2, height);
     walll->setPos(rect().width() - this->width, rect().height() - this->height);
-    walll->setFlag(QGraphicsItem::ItemIsFocusable);
-    walll->setFocus();
     wallr->setPos(rect().width() - rand2, rect().height() - this->height);
-    wallr->setFlag(QGraphicsItem::ItemIsFocusable);
-    wallr->setFocus();
     scene->addItem(walll);
     scene->addItem(wallr);
 }
