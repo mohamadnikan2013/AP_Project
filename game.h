@@ -23,8 +23,14 @@ private:
 public:
     Game(int w = 800, int h = 600);
 
-public slots:
+public
+    Q_SLOTS:
+    void
+
+    advance();
+
     void create_map();
+
     void create_enemies();
 };
 
