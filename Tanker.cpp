@@ -6,9 +6,6 @@
 
 
 Tanker::Tanker(double vX)
-        : Marinenemy(30, vX) {
-    if (vX > 0)
-        this->setPixmap(QPixmap(":/images/rightTanker.png"));
-    else
-        this->setPixmap(QPixmap(":/images/leftTanker.png"));
+        : Marinenemy(":/images/leftTanker.png", ":/images/rightTanker.png", 20,30, vX)
+{
 }

@@ -10,9 +10,8 @@
 #include <QDebug>
 #include <QGraphicsScene>
 #include <typeinfo>
-extern Game * game;
 
-int Player::height = 80;
+int Player::height = 50;
 int Player::width;
 
 Player::Player(double vX, double aX)
@@ -47,14 +46,14 @@ void Player::keyPressEvent(QKeyEvent *event)
     {
         rightKeyPushed = true;
         if(direction != 1)
-            this->setPixmap(QPixmap(":/images/rightRotatedPlayer").scaledToHeight(80));
+            this->setPixmap(QPixmap(":/images/rightRotatedPlayer").scaledToHeight(height));
         direction = 1;
     }
     if(event->key() == Qt::Key_Left)
     {
         leftKeyPushed = true;
         if(direction != -1)
-            this->setPixmap(QPixmap(":/images/leftRotatedPlayer").scaledToHeight(80));
+            this->setPixmap(QPixmap(":/images/leftRotatedPlayer").scaledToHeight(height));
         direction = -1;
     }
     if(event->key() == Qt::Key_Up)
@@ -71,7 +70,7 @@ void Player::keyReleaseEvent(QKeyEvent *event)
         rightKeyPushed = false;
         if(!leftKeyPushed)
         {
-            setPixmap(QPixmap(":/images/player.png").scaledToHeight(80));
+            setPixmap(QPixmap(":/images/player.png").scaledToHeight(height));
             direction = 0;
         }
         else
@@ -103,6 +102,8 @@ void Player::keyReleaseEvent(QKeyEvent *event)
 
 void Player::explode()
 {
+    scene()->removeItem(this);
+    delete this;
 }
 
 void Player::setHasBullet(bool value)

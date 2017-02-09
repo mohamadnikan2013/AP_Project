@@ -3,13 +3,10 @@
 //
 
 #include "Helicopter.h"
-
+#include "Wall.h"
+#include <typeinfo>
 
 Helicopter::Helicopter(double vX)
-    :AerialEnemy(60, vX)
+    :Marinenemy(":/images/leftHelicopter.gif", ":/images/rightHelicopter.gif", 15, 60, vX)
 {
-    if(vX > 0)
-        this->setPixmap(QPixmap(":/images/rightHelicopter.png"));
-    else
-        this->setPixmap(QPixmap(":/images/leftHelicopter.png"));
 }

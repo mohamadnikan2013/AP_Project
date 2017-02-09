@@ -9,7 +9,7 @@ class MovingObject;
 
 #include"movingObject.h"
 
-class DepotFuel : MovingObject {
+class DepotFuel : public MovingObject {
 public:
     DepotFuel();
 };

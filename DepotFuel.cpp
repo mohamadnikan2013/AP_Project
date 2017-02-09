@@ -8,5 +8,5 @@
 DepotFuel::DepotFuel()
     :MovingObject(150, Physics(), Physics())
 {
-    this->setPixmap(QPixmap(":/images/fuelDepot.png"));
+    this->setPixmap(QPixmap(":/images/fuelDepot.png").scaled(20, 50));
 }

@@ -6,9 +6,9 @@
 #include <movingObject.h>
 #include "Bullet.h"
 #include "Baloon.h"
-
 #include "Tanker.h"
 #include "Helicopter.h"
+#include "DepotFuel.h"
 
 Game::Game(int w, int h) : width(w), height(h) {
     framesPerSecond = 30;

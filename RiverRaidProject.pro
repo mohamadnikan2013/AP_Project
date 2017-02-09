@@ -58,3 +58,7 @@ DISTFILES += \
 RESOURCES += \
     images.qrc \
     sounds.qrc
+
+OTHER_FILES += \
+    images/leftBalloon.png \
+    images/rightBalloon.png

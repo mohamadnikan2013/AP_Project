@@ -3,14 +3,17 @@
 //
 
 #include "Jet.h"
+#include <QDebug>
 
 
 Jet::Jet(double vX)
-        : AerialEnemy(100, vX) {
-    if (vX > 0)
-        this->setPixmap(QPixmap(":/images/rightJet.png").scaledToHeight(30));
-    else
-        this->setPixmap(QPixmap(":/images/leftJet.png").scaledToHeight(30));
+        : AerialEnemy(":/images/lefttJet.png", ":/images/rightJet.png", 17, 100, vX)
+{
+    if(left.isNull())
+        qDebug() << "why?";
+    QPixmap p(":/images/lefttJet.png");
+    if(p.isNull())
+        qDebug() << "wth?";
 }
 
 Jet::~Jet() {

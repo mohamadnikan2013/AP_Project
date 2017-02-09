@@ -5,11 +5,11 @@
 #ifndef HELICOPTER_H
 #define HELICOPTER_H
 
-#include"AerialEnemy.h"
+#include"Marinenemy.h"
 
-class AerialEnemy;
+class Marinenemy;
 
-class Helicopter  : public AerialEnemy{
+class Helicopter  : public Marinenemy{
 public:
     Helicopter(double vX = 0);
 };

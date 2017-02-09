@@ -6,18 +6,20 @@
 #define ENEMYOBEJCT_H
 
 #include"movingObject.h"
-#include<QPointF>
 class MovingObject;
 
 class EnemyObject : public MovingObject{
+protected:
+    const QPixmap left;
+    const QPixmap right;
 public:
-    EnemyObject(int score, double vX = 0);
+    EnemyObject(QString leftAddress, QString rightAddress, int height, int score, double vX = 0);
 
     virtual bool isEnemy();
     virtual void explode();
-    QPointF getPos();
 
+    int height() const;
+    int width() const;
 };
-
 
 #endif //ENEMYOBEJCT_H

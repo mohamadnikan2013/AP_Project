@@ -4,7 +4,6 @@
 #include"Object.h"
 #include<QObject>
 
-
 class Object;
 class QObject;
 

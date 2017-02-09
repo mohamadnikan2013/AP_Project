@@ -18,14 +18,10 @@ Bullet::Bullet(Player* player, double vY) : Object(Physics(), Physics(vY))
 void Bullet::advance(int phase)
 {
     QList<QGraphicsItem *> colliding_items = collidingItems();
-    if(colliding_items.size() > 0)
-        qDebug() << colliding_items.size();
     for(int i = 0 , n = colliding_items.size() ; i < n ; i++ )
     {
-
         if(((Object*)colliding_items[i])->isEnemy())
         {
-            qDebug() << "got here";
             ((Object*)(colliding_items[i]))->explode();
             this->explode();
             return;

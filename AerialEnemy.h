@@ -11,7 +11,8 @@ class EnemyObject;
 
 class AerialEnemy : public EnemyObject{
 public:
-    AerialEnemy(int score, double vX = 0);
+    AerialEnemy(QString leftAddress, QString rightAddress, int height, int score, double vX = 0);
+    virtual void advance(int phase);
 };
 
 

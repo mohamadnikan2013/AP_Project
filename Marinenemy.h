@@ -11,7 +11,9 @@ class EnemyObject;
 
 class Marinenemy : public EnemyObject{
 public:
-    Marinenemy(int score, double vX = 0);
+    Marinenemy(QString leftAddress, QString rightAddress, int height, int score, double vX = 0);
+    virtual void advance(int phase);
+
 };
 
 
