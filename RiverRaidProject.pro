@@ -11,6 +11,8 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = RiverRaidProject
 TEMPLATE = app
 
+QT += multimedia
+
 
 SOURCES += main.cpp\
     AerialEnemy.cpp \
@@ -30,7 +32,8 @@ SOURCES += main.cpp\
     game.cpp \
     Player.cpp \
     score.cpp \
-    physics.cpp
+    physics.cpp \
+    fuelindicator.cpp
 
 HEADERS  += \
     AerialEnemy.h \
@@ -50,7 +53,8 @@ HEADERS  += \
     game.h \
     Player.h \
     score.h \
-    physics.h
+    physics.h \
+    fuelindicator.h
 
 DISTFILES += \
     RiverRaidProject.pro.user

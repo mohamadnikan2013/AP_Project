@@ -15,7 +15,7 @@ int Player::height = 50;
 int Player::width;
 
 Player::Player(double vX, double aX)
-    :Object(Physics(vX,  aX), Physics())
+    :Object(Physics(vX,  aX), Physics()), sound(":/sounds/fire.wav")
 {
     QPixmap p(":/images/player.png");
     p = p.scaledToHeight(height);
@@ -36,6 +36,7 @@ void Player::keyPressEvent(QKeyEvent *event)
         return;
     if(event->key() == Qt::Key_Space && !hasBullet)
     {
+        sound.play();
         Bullet * bullet = new Bullet(this, -400);
         bullet->setPos(x() + this->pixmap().width() / 2 - bullet->pixmap().width() / 2 , y() - bullet->pixmap().height() / 2);
         scene()->addItem(bullet);

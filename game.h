@@ -7,12 +7,14 @@
 #include "Player.h"
 #include "score.h"
 #include "Jet.h"
+#include "fuelindicator.h"
 
 class Game : public QGraphicsView {
 private:
     QGraphicsScene *scene;
     Player *player;
     Score *score;
+    FuelIndicator* fuelIndicator;
     const int height;
     const int width;
     int difficulty;

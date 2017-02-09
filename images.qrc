@@ -24,5 +24,6 @@
         <file>images/explode6.jpg</file>
         <file>images/leftBalloon.png</file>
         <file>images/rightBalloon.png</file>
+        <file>images/fuelIndicator.png</file>
     </qresource>
 </RCC>

@@ -28,6 +28,10 @@ Game::Game(int w, int h) : width(w), height(h) {
     MovingObject::screenPhysics().setMaxV(80);
     MovingObject::screenPhysics().setMinV(10);
 
+    fuelIndicator = new FuelIndicator(framesPerSecond, 100);
+    fuelIndicator->setPos(0, this->height - 100);
+    scene->addItem(fuelIndicator);
+
 
     player->setPos(rect().width() * 0.45, rect().height() - player->getHeight());
     qDebug() << player->x() << "  " << player->y();

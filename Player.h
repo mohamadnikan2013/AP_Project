@@ -7,6 +7,7 @@
 
 #include"Object.h"
 #include <QKeyEvent>
+#include <QtMultimedia/qsound.h>
 class Object;
 
 class Player : public Object{
@@ -19,8 +20,9 @@ private:
     bool downKeyPushed;
     bool rightKeyPushed;
     bool leftKeyPushed;
-
     bool hasBullet;
+
+    QSound sound;
 public:
     virtual void advance(int phase);
     Player(double vX, double aX);
