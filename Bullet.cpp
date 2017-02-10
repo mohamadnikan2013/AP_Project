@@ -8,7 +8,8 @@
 #include "EnemyObject.h"
 #include "Jet.h"
 #include <QDebug>
-#include "Wall.h"
+#include<typeinfo>
+#include"Wall.h"
 
 Bullet::Bullet(Game* game, Player* player, double vY) : Object(Physics(), Physics(vY))
 {
