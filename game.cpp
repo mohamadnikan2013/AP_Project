@@ -54,26 +54,11 @@ Game::Game(int w, int h) : width(w), height(h) {
     score->setPos(this->width - 80, this->height - 60);
     scene->addItem(score);
 
-//    int rand1 = 10;
-//    int rand2 = 20;
-//    int height = 20;
-//    Wall *walll = new Wall(rand1, height);
-//    Wall *wallr = new Wall(rand2, height);
-//    walll->setPos(rect().width() - this->width, rect().height() - this->height);
-//    wallr->setPos(rect().width() - rand2, rect().height() - this->height);;
-//    scene->addItem(walll);
-//    scene->addItem(wallr);
-
-
-
-
-//qDebug()<< qrand();
-
     timer = new QTimer();
     timer1 = new QTimer();
     timer2 = new QTimer();
     timer1->start(3000);
-    timer2->start(4000);
+    timer2->start(2000);
     QObject::connect(timer, SIGNAL(timeout()), this, SLOT(create_map()));
     QObject::connect(timer, SIGNAL(timeout()), scene, SLOT(advance()));
     QObject::connect(timer2, SIGNAL(timeout()), this, SLOT(create_enemies()));
@@ -132,7 +117,7 @@ void Game::unPause()
 }
 
 void Game::create_enemies() {
-    int myrand = qrand()%7;
+    int myrand = qrand()%6;
     int speed = 20+qrand()%70;
     MovingObject *enemy;
     QList < QGraphicsItem * > colliding_items;
