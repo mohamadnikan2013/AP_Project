@@ -66,6 +66,3 @@ RESOURCES += \
     sounds.qrc
 
 OTHER_FILES +=
-
-FORMS += \
-    form.ui
