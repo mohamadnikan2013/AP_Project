@@ -27,4 +27,5 @@ void Explosion::advance(int phase)
             return;
         }
     }
+    this->setPos(mapToParent(0, this->screenPhysics().movement()));
 }
