@@ -51,6 +51,7 @@ Game::Game(int w, int h) : width(w), height(h) {
 //    scene->addItem(jet);
 //    scene->addItem(wall);
     score = new Score;
+    score->setPos(this->width - 80, this->height - 60);
 
     scene->addItem(player);
     scene->addItem(score);
@@ -137,4 +138,5 @@ void Game::create_map() {
     wallr->setPos(rect().width() - rand2, rect().height() - this->height);
     scene->addItem(walll);
     scene->addItem(wallr);
+
 }

@@ -8,8 +8,10 @@
 #include "score.h"
 #include "Jet.h"
 #include "fuelindicator.h"
+#include "score.h"
 
 class Game : public QGraphicsView {
+    Q_OBJECT
 private:
     QGraphicsScene *scene;
     Player *player;
@@ -25,11 +27,11 @@ private:
 public:
     Game(int w = 900, int h = 600);
 
-public
-    Q_SLOTS:
-    void
+public slots:
+//    Q_SLOTS:
+//    void
 
-    advance();
+//    advance();
 
     void create_map();
 
