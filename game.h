@@ -55,7 +55,6 @@ public slots:
 //    advance();
 
     void create_map();
-    void start();
 
     void create_enemies();
       void game_over();

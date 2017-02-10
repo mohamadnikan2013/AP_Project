@@ -113,38 +113,32 @@ void Game::create_enemies() {
     switch (myrand) {
         case 1:
             enemy = new Baloon(speed);
-             enemy->setPos(rect().width()-(qrand()%800), rect().height()-this->height);
             break;
         case 2:
             enemy = new Jet(speed);
-             enemy->setPos(rect().width()-(qrand()%800), rect().height()-this->height);
             break;
         case 3:
             enemy = new Helicopter(speed);
-            do {
-                enemy->setPos(rect().width()-(qrand()%800), rect().height()-this->height);
-                colliding_items = enemy->collidingItems();
-            } while (!colliding_items.isEmpty());
             break;
         case 4:
             enemy = new Tanker(speed);
-            do {
-                enemy->setPos(rect().width()-(qrand()%800), rect().height()-this->height);
-                colliding_items = enemy->collidingItems();
-            } while (!colliding_items.isEmpty());
             break;
         case 5:
-        enemy = new DepotFuel();
-        do {
-            enemy->setPos(rect().width()-(qrand()%800), rect().height()-this->height);
-            colliding_items = enemy->collidingItems();
-        } while (!colliding_items.isEmpty());
-        break;
+            enemy = new DepotFuel();
+            break;
         default:
             return;
     }
-    qDebug()<<myrand;
+    enemy->setPos(rect().width()-(qrand()%800), rect().height()-this->height);
     this->scene->addItem(enemy);
+    if(myrand > 2)
+    {
+        do {
+            enemy->setPos(qrand() %(this->width - 50), rect().height()-this->height);
+            colliding_items = enemy->collidingItems();
+        } while (!colliding_items.isEmpty());
+    }
+    qDebug()<< "random " << myrand;
 }
 void Game::create_map() {
     if(highestWall->y() < -100)
@@ -196,9 +190,4 @@ void Game::game_over()
     connect(_cancelg,SIGNAL(clicked()),this,SLOT(close()));
 
     return;
-}
-
-void Game::start()
-{
-
 }
