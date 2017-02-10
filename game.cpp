@@ -22,7 +22,7 @@ Game::Game(Menu* menu, int w, int h) : width(w), height(h) {
     setScene(scene);
     player = new Player(this, 80, 10);
 
-    setBackgroundBrush(QBrush("gray"));
+    setBackgroundBrush(QBrush("blue"));
     Physics::setFps(framesPerSecond);
     MovingObject::screenPhysics().setV(20);
     MovingObject::screenPhysics().setA(10);
@@ -39,44 +39,44 @@ Game::Game(Menu* menu, int w, int h) : width(w), height(h) {
     qDebug() << rect().height();
     player->setFlag(QGraphicsItem::ItemIsFocusable);
     player->setFocus();
-
-    Baloon *jet = new Baloon(20);
-    scene->addItem(jet);
-    jet->setPos(rect().width() * .2, rect().width() * .2);
-    qDebug() << jet->pos();
-//    Wall * wall = new Wall(150,10);
-//    qDebug()<<"added";
-//    wall->setPos(rect().width()-150,rect().height()-600);
-//    wall->setFlag(QGraphicsItem::ItemIsFocusable);
-//    wall->setFocus();
-//    scene->addItem(jet);
-//    scene->addItem(wall);
-    score = new Score;
-    score->setPos(this->width - 80, this->height - 60);
-
     scene->addItem(player);
-    scene->addItem(score);
 
-
-    int rand1 = 10;
-    int rand2 = 20;
-    int height = 20;
-    Wall *walll = new Wall(rand1, height);
-    Wall *wallr = new Wall(rand2, height);
+    Wall *walll = new Wall(150, this->height);
+    Wall *wallr = new Wall(150, this->height);
     walll->setPos(rect().width() - this->width, rect().height() - this->height);
-    wallr->setPos(rect().width() - rand2, rect().height() - this->height);;
+    wallr->setPos(rect().width() - 150, rect().height() - this->height);
     scene->addItem(walll);
     scene->addItem(wallr);
+
+
+    score = new Score;
+    score->setPos(this->width - 80, this->height - 60);
+    scene->addItem(score);
+
+//    int rand1 = 10;
+//    int rand2 = 20;
+//    int height = 20;
+//    Wall *walll = new Wall(rand1, height);
+//    Wall *wallr = new Wall(rand2, height);
+//    walll->setPos(rect().width() - this->width, rect().height() - this->height);
+//    wallr->setPos(rect().width() - rand2, rect().height() - this->height);;
+//    scene->addItem(walll);
+//    scene->addItem(wallr);
 
 
 
 
 //qDebug()<< qrand();
-    timer = new QTimer();
+
+    QTimer *timer = new QTimer();
+    QTimer *timer1 = new QTimer();
+    timer1->start(3000);
     QObject::connect(timer, SIGNAL(timeout()), scene, SLOT(advance()));
-    QObject::connect(timer, SIGNAL(timeout()), this, SLOT(create_enemies()));
-    QObject::connect(timer, SIGNAL(timeout()), this, SLOT(create_map()));
+    QObject::connect(timer1, SIGNAL(timeout()), this, SLOT(create_enemies()));
+    QObject::connect(timer1, SIGNAL(timeout()), this, SLOT(create_map()));
+    timer->stop();
     timer->start(1000 / framesPerSecond);
+
 }
 
 void Game::pause()
@@ -100,10 +100,10 @@ void Game::advance() {
 }
 */
 void Game::create_enemies() {
-    int rand = 2;
+    int myrand = qrand()%5;;
     EnemyObject *enemy;
     QList < QGraphicsItem * > colliding_items;
-    switch (rand) {
+    switch (myrand) {
         case 1:
             enemy = new Baloon();
             do {
@@ -113,7 +113,7 @@ void Game::create_enemies() {
             break;
         case 2:
             enemy = new Jet();
-            enemy->setPos(rect().width() * (0.2), rect().height());
+            enemy->setPos(rect().width()-500, rect().height()-this->height);
             break;
         case 3:
             enemy = new Helicopter();
@@ -130,8 +130,9 @@ void Game::create_enemies() {
             return;
     }
 //    player->setFlag(QGraphicsItem::ItemIsFocusable);
-  //  player->setFocus();
-    scene->addItem(enemy);
+//    player->setFocus();
+    qDebug()<<myrand;
+    this->scene->addItem(enemy);
 }
 /*
 void Game::drawBackground(QPainter *painter, const QRectF &rect)
@@ -145,9 +146,9 @@ void Game::drawBackground(QPainter *painter, const QRectF &rect)
 }
 */
 void Game::create_map() {
-    int rand1 = 10;
-    int rand2 = 20;
-    int height = 20;
+    int rand1 = 100+qrand()%150;
+    int rand2 = 100+qrand()%150;
+    int height = 130;
     Wall *walll = new Wall(rand1, height);
     Wall *wallr = new Wall(rand2, height);
     walll->setPos(rect().width() - this->width, rect().height() - this->height);

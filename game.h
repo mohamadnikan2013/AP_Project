@@ -23,7 +23,7 @@ private:
     QGraphicsScene* scene;
     Player *player;
     Score *score;
-    QTimer* timer;
+//    QTimer* timer;
     FuelIndicator* fuelIndicator;
     const int height;
     const int width;
