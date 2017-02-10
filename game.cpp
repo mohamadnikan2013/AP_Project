@@ -39,10 +39,10 @@ Game::Game(int w, int h) : width(w), height(h) {
     player->setFlag(QGraphicsItem::ItemIsFocusable);
     player->setFocus();
 
-    Baloon *jet = new Baloon(20);
-    scene->addItem(jet);
-    jet->setPos(rect().width() * .2, rect().width() * .2);
-    qDebug() << jet->pos();
+//    Baloon *jet = new Baloon(20);
+//    scene->addItem(jet);
+//    jet->setPos(rect().width() * .2, rect().width() * .2);
+//    qDebug() << jet->pos();
 //    Wall * wall = new Wall(150,10);
 //    qDebug()<<"added";
 //    wall->setPos(rect().width()-150,rect().height()-600);
@@ -53,29 +53,31 @@ Game::Game(int w, int h) : width(w), height(h) {
     score = new Score;
     score->setPos(this->width - 80, this->height - 60);
 
-    scene->addItem(player);
+//    scene->addItem(player);
     scene->addItem(score);
+scene->addItem(player);
 
-
-    int rand1 = 10;
-    int rand2 = 20;
-    int height = 20;
-    Wall *walll = new Wall(rand1, height);
-    Wall *wallr = new Wall(rand2, height);
-    walll->setPos(rect().width() - this->width, rect().height() - this->height);
-    wallr->setPos(rect().width() - rand2, rect().height() - this->height);;
-    scene->addItem(walll);
-    scene->addItem(wallr);
+//    int rand1 = 10;
+//    int rand2 = 20;
+//    int height = 20;
+//    Wall *walll = new Wall(rand1, height);
+//    Wall *wallr = new Wall(rand2, height);
+//    walll->setPos(rect().width() - this->width, rect().height() - this->height);
+//    wallr->setPos(rect().width() - rand2, rect().height() - this->height);;
+//    scene->addItem(walll);
+//    scene->addItem(wallr);
 
 
 
 
 //qDebug()<< qrand();
     QTimer *timer = new QTimer();
+    QTimer *timer1 = new QTimer();
     QObject::connect(timer, SIGNAL(timeout()), scene, SLOT(advance()));
-    QObject::connect(timer, SIGNAL(timeout()), this, SLOT(create_enemies()));
-    QObject::connect(timer, SIGNAL(timeout()), this, SLOT(create_map()));
+    QObject::connect(timer1, SIGNAL(timeout()), this, SLOT(create_enemies()));
+    QObject::connect(timer1, SIGNAL(timeout()), this, SLOT(create_map()));
     timer->start(1000 / framesPerSecond);
+    timer1->start(300);
 }
 /*
 void Game::advance() {
@@ -84,10 +86,10 @@ void Game::advance() {
 }
 */
 void Game::create_enemies() {
-    int rand = 2;
+    int myrand = qrand()%5;;
     EnemyObject *enemy;
     QList < QGraphicsItem * > colliding_items;
-    switch (rand) {
+    switch (myrand) {
         case 1:
             enemy = new Baloon();
             do {
@@ -97,7 +99,7 @@ void Game::create_enemies() {
             break;
         case 2:
             enemy = new Jet();
-            enemy->setPos(rect().width() * (0.2), rect().height());
+            enemy->setPos(rect().width()-500, rect().height()-this->height);
             break;
         case 3:
             enemy = new Helicopter();
@@ -114,8 +116,9 @@ void Game::create_enemies() {
             return;
     }
 //    player->setFlag(QGraphicsItem::ItemIsFocusable);
-  //  player->setFocus();
-    scene->addItem(enemy);
+//    player->setFocus();
+    qDebug()<<myrand;
+    this->scene->addItem(enemy);
 }
 /*
 void Game::drawBackground(QPainter *painter, const QRectF &rect)
@@ -129,9 +132,9 @@ void Game::drawBackground(QPainter *painter, const QRectF &rect)
 }
 */
 void Game::create_map() {
-    int rand1 = 10;
-    int rand2 = 20;
-    int height = 20;
+    int rand1 = qrand()%300;
+    int rand2 = qrand()%300;
+    int height = 12;
     Wall *walll = new Wall(rand1, height);
     Wall *wallr = new Wall(rand2, height);
     walll->setPos(rect().width() - this->width, rect().height() - this->height);
