@@ -26,7 +26,6 @@ SOURCES += main.cpp\
     Tanker.cpp \
     Wall.cpp \
     movingObject.cpp \
-    Timer.cpp \
     EnemyObject.cpp \
     game.cpp \
     Player.cpp \
@@ -49,7 +48,6 @@ HEADERS  += \
     Tanker.h \
     Wall.h \
     movingObject.h \
-    Timer.h \
     EnemyObject.h \
     game.h \
     Player.h \
