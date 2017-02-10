@@ -4,6 +4,11 @@
 
 Physics MovingObject::ScreenPhys;
 
+
+int MovingObject::getScore() const
+{
+    return score;
+}
 MovingObject::MovingObject(int score, Physics xPhys, Physics yPhys)
     : score(score), Object(xPhys, yPhys)
 {

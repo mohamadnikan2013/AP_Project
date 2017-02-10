@@ -6,6 +6,6 @@
 
 
 Baloon::Baloon(double vX)
-    : Marinenemy(":/images/leftBalloon.png", ":/images/rightBalloon.png", 50, 60, vX)
+    : AerialEnemy(":/images/leftBalloon.png", ":/images/rightBalloon.png", 50, 60, vX)
 {
 }

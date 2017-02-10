@@ -8,10 +8,7 @@
         <file>images/blue.png</file>
         <file>images/fuelDepot.png</file>
         <file>images/green.gif</file>
-        <file>images/leftHelicopter.gif</file>
-        <file>images/leftTanker.png</file>
         <file>images/lefttJet.png</file>
-        <file>images/rightHelicopter.gif</file>
         <file>images/rightJet.png</file>
         <file>images/rightTanker.png</file>
         <file>images/balloon.png</file>
@@ -26,5 +23,8 @@
         <file>images/rightBalloon.png</file>
         <file>images/fuelIndicator.png</file>
         <file>images/water.jpg</file>
+        <file>images/leftTanker.png</file>
+        <file>images/leftHelicopter.gif</file>
+        <file>images/rightHelicopter.gif</file>
     </qresource>
 </RCC>

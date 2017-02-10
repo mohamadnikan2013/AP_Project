@@ -36,6 +36,10 @@ private:
 
 public:
     Game(int w = 900, int h = 600);
+    void addScore(int x);
+    void onFuel();
+    void offFuel();
+
 
 public slots:
 //    Q_SLOTS:

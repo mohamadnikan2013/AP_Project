@@ -12,9 +12,10 @@ class Object;
 class Player;
 
 class Bullet : public Object {
+    Game* game;
     Player* player;
 public:
-    Bullet(Player* player, double vY);
+    Bullet(Game* game, Player* player, double vY);
     virtual void advance(int phase);
     virtual void explode();
 };

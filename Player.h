@@ -9,6 +9,7 @@
 #include <QKeyEvent>
 #include <QtMultimedia/qsound.h>
 #include "game.h"
+#include "DepotFuel.h"
 class Game;
 class Object;
 

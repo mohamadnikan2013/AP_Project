@@ -40,7 +40,7 @@ void Player::keyPressEvent(QKeyEvent *event)
     if(event->key() == Qt::Key_Space && !hasBullet)
     {
         sound.play();
-        Bullet * bullet = new Bullet(this, -400);
+        Bullet * bullet = new Bullet(game, this, -400);
         bullet->setPos(x() + this->pixmap().width() / 2 - bullet->pixmap().width() / 2 , y() - bullet->pixmap().height() / 2);
         scene()->addItem(bullet);
         hasBullet = true;
@@ -155,9 +155,12 @@ void Player::advance(int phase)
     }
     setPos(mapToParent(this->xPhys.movement() * direction, 0));
 
+
+
     QList<QGraphicsItem *> colliding_items = collidingItems();
     for(int i = 0 , n = colliding_items.size() ; i < n ; i++ )
     {
+        game->offFuel();
         if(((Object*)colliding_items[i])->isEnemy())
         {
             qDebug() << "player explode";
@@ -171,5 +174,7 @@ void Player::advance(int phase)
             this->explode();
             return;
         }
+        else if(typeid(*(colliding_items[i])) == typeid(DepotFuel))
+            game->onFuel();
     }
 }

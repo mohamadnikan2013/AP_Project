@@ -9,8 +9,9 @@
 #include "Jet.h"
 #include <QDebug>
 
-Bullet::Bullet(Player* player, double vY) : Object(Physics(), Physics(vY))
+Bullet::Bullet(Game* game, Player* player, double vY) : Object(Physics(), Physics(vY))
 {
+    this->game = game;
     this->player = player;
     setPixmap(QPixmap(":/images/missile.png").scaledToHeight(10));
 }
@@ -23,6 +24,7 @@ void Bullet::advance(int phase)
         if(((Object*)colliding_items[i])->isEnemy())
         {
             ((Object*)(colliding_items[i]))->explode();
+            game->addScore(((MovingObject*)colliding_items[i])->getScore());
             this->explode();
             return;
         }

@@ -5,11 +5,11 @@
 #ifndef BALOON_H
 #define BALOON_H
 
-#include"Marinenemy.h"
+#include"AerialEnemy.h"
 
-class Marinenemy;
+class AerialEnemy;
 
-class Baloon : public Marinenemy{
+class Baloon : public AerialEnemy{
 public:
     Baloon(double vX = 0);
 };

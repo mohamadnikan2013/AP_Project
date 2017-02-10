@@ -51,3 +51,13 @@ void FuelIndicator::advance(int phase)
     QPoint dest = getDist();
     indicator->setLine(center.x(), center.y(), dest.x(), dest.y());
 }
+
+void FuelIndicator::onDepotFuel()
+{
+    increase = true;
+}
+
+void FuelIndicator::offDepotFuel()
+{
+    increase = false;
+}

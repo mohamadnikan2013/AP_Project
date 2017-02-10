@@ -16,6 +16,7 @@ public:
     virtual void advance(int phase);
 
     static Physics& screenPhysics();
+    int getScore() const;
 };
 
 #endif // MOVINGOBJECT_H

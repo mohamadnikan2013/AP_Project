@@ -15,7 +15,3 @@ Jet::Jet(double vX)
     if(p.isNull())
         qDebug() << "wth?";
 }
-
-Jet::~Jet() {
-
-}

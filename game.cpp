@@ -81,6 +81,22 @@ Game::Game(int w, int h) : width(w), height(h) {
     timer->start(1000 / framesPerSecond);
 
 }
+
+void Game::addScore(int x)
+{
+    this->score->addScore(x);
+}
+
+void Game::onFuel()
+{
+    this->fuelIndicator->onDepotFuel();
+}
+
+void Game::offFuel()
+{
+    this->fuelIndicator->offDepotFuel();
+}
+
 void Game::pause()
 {
     ispaused = true;
