@@ -14,9 +14,10 @@
 int Player::height = 50;
 int Player::width;
 
-Player::Player(double vX, double aX)
+Player::Player(Game* game, double vX, double aX)
     :Object(Physics(vX,  aX), Physics()), sound(":/sounds/fire.wav")
 {
+    this->game = game;
     QPixmap p(":/images/player.png");
     p = p.scaledToHeight(height);
     width = p.width();

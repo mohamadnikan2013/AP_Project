@@ -11,7 +11,8 @@
 #include "Helicopter.h"
 #include "DepotFuel.h"
 
-Game::Game(int w, int h) : width(w), height(h) {
+Game::Game(Menu* menu, int w, int h) : width(w), height(h) {
+    this->menu = menu;
     framesPerSecond = 30;
     scene = new QGraphicsScene;
     scene->setSceneRect(0, 0, width, height);
@@ -19,7 +20,7 @@ Game::Game(int w, int h) : width(w), height(h) {
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setFixedSize(width, height);
     setScene(scene);
-    player = new Player(80, 10);
+    player = new Player(this, 80, 10);
 
     setBackgroundBrush(QBrush("gray"));
     Physics::setFps(framesPerSecond);
@@ -71,12 +72,27 @@ Game::Game(int w, int h) : width(w), height(h) {
 
 
 //qDebug()<< qrand();
-    QTimer *timer = new QTimer();
+    timer = new QTimer();
     QObject::connect(timer, SIGNAL(timeout()), scene, SLOT(advance()));
     QObject::connect(timer, SIGNAL(timeout()), this, SLOT(create_enemies()));
     QObject::connect(timer, SIGNAL(timeout()), this, SLOT(create_map()));
     timer->start(1000 / framesPerSecond);
 }
+
+void Game::pause()
+{
+    ispaused = true;
+    menu->show();
+    this->hide();
+}
+
+void Game::unPause()
+{
+    ispaused = false;
+    menu->hide();
+    this->show();
+}
+
 /*
 void Game::advance() {
     qDebug() << "here";
@@ -138,5 +154,4 @@ void Game::create_map() {
     wallr->setPos(rect().width() - rand2, rect().height() - this->height);
     scene->addItem(walll);
     scene->addItem(wallr);
-
 }

@@ -9,13 +9,21 @@
 #include "Jet.h"
 #include "fuelindicator.h"
 #include "score.h"
+#include <QTimer>
+#include "menu.h"
+
+class Menu;
+class Player;
 
 class Game : public QGraphicsView {
     Q_OBJECT
 private:
-    QGraphicsScene *scene;
+    Menu* menu;
+    bool ispaused;
+    QGraphicsScene* scene;
     Player *player;
     Score *score;
+    QTimer* timer;
     FuelIndicator* fuelIndicator;
     const int height;
     const int width;
@@ -25,17 +33,19 @@ private:
     bool is_finished;
 
 public:
-    Game(int w = 900, int h = 600);
+    Game(Menu* menu, int w = 900, int h = 600);
 
 public slots:
 //    Q_SLOTS:
-//    void
 
 //    advance();
 
     void create_map();
 
     void create_enemies();
+
+    void pause();
+    void unPause();
 
     //virtual void drawBackground(QPainter *painter, const QRectF &rect);
 };
