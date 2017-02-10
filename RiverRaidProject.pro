@@ -23,7 +23,6 @@ SOURCES += main.cpp\
     Helicopter.cpp \
     Jet.cpp \
     Marinenemy.cpp \
-    Object.cpp \
     Tanker.cpp \
     Wall.cpp \
     movingObject.cpp \
@@ -34,7 +33,8 @@ SOURCES += main.cpp\
     score.cpp \
     physics.cpp \
     fuelindicator.cpp \
-    menu.cpp
+    menu.cpp \
+    Object.cpp
 
 HEADERS  += \
     AerialEnemy.h \

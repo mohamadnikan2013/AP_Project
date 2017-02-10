@@ -18,6 +18,8 @@ class Player;
 class Game : public QGraphicsView {
     Q_OBJECT
 private:
+    QTimer *timer;
+    QTimer *timer1;
     Menu* menu;
     bool ispaused;
     QGraphicsScene* scene;
@@ -33,7 +35,7 @@ private:
     bool is_finished;
 
 public:
-    Game(Menu* menu, int w = 900, int h = 600);
+    Game(int w = 900, int h = 600);
 
 public slots:
 //    Q_SLOTS:

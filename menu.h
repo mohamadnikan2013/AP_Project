@@ -12,6 +12,7 @@ class Menu : public QWidget
 {
     Q_OBJECT
 private:
+    Game* game;
     QVBoxLayout* layout;
 
     QPushButton* continu;
@@ -19,7 +20,7 @@ private:
     QPushButton* quit;
 
 public:
-    explicit Menu(QWidget *parent = 0);
+    explicit Menu(Game* game, QWidget *parent = 0);
 public slots:
     void buildNewGame();
     void quitGame();

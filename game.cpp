@@ -11,8 +11,9 @@
 #include "Helicopter.h"
 #include "DepotFuel.h"
 
-Game::Game(Menu* menu, int w, int h) : width(w), height(h) {
-    this->menu = menu;
+Game::Game(int w, int h) : width(w), height(h) {
+    this->menu = new Menu(this);
+    menu->hide();
     framesPerSecond = 30;
     scene = new QGraphicsScene;
     scene->setSceneRect(0, 0, width, height);
@@ -68,8 +69,8 @@ Game::Game(Menu* menu, int w, int h) : width(w), height(h) {
 
 //qDebug()<< qrand();
 
-    QTimer *timer = new QTimer();
-    QTimer *timer1 = new QTimer();
+    timer = new QTimer();
+    timer1 = new QTimer();
     timer1->start(3000);
     QObject::connect(timer, SIGNAL(timeout()), scene, SLOT(advance()));
     QObject::connect(timer1, SIGNAL(timeout()), this, SLOT(create_enemies()));
@@ -82,12 +83,16 @@ Game::Game(Menu* menu, int w, int h) : width(w), height(h) {
 void Game::pause()
 {
     ispaused = true;
+    timer->stop();
+    timer1->stop();
     menu->show();
     this->hide();
 }
 
 void Game::unPause()
 {
+    timer->start();
+    timer1->start();
     ispaused = false;
     menu->hide();
     this->show();

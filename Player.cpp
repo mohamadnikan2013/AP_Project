@@ -162,6 +162,7 @@ void Player::advance(int phase)
         {
             qDebug() << "player explode";
             this->explode();
+            this->game->pause();
             ((Object*)colliding_items[i])->explode();
             return;
         }
