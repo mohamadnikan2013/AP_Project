@@ -21,8 +21,6 @@ Game::Game(int w, int h) : width(w), height(h) {
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setFixedSize(width, height);
     setScene(scene);
-    player = new Player(this, 80, 10);
-
     setBackgroundBrush(QBrush("blue"));
     Physics::setFps(framesPerSecond);
     MovingObject::screenPhysics().setV(20);
@@ -34,7 +32,7 @@ Game::Game(int w, int h) : width(w), height(h) {
     fuelIndicator->setPos(0, this->height - 90);
     scene->addItem(fuelIndicator);
 
-
+    player = new Player(this->fuelIndicator,this, 80, 10);
     player->setPos(rect().width() / 2 - player->getWidth() / 2, (rect().height() - player->getHeight()) * 5 / 6);
     qDebug() << player->x() << "  " << player->y();
     qDebug() << rect().height();

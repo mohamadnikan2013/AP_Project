@@ -14,10 +14,11 @@
 int Player::height = 50;
 int Player::width;
 
-Player::Player(Game* game, double vX, double aX)
+Player::Player(FuelIndicator* fuel , Game* game, double vX, double aX)
     :Object(Physics(vX,  aX), Physics()), sound(":/sounds/fire.wav")
 {
     this->game = game;
+    this->fuel = fuel;
     QPixmap p(":/images/player.png");
     p = p.scaledToHeight(height);
     width = p.width();
@@ -139,6 +140,12 @@ void Player::setWidth(int value)
 }
 void Player::advance(int phase)
 {
+    if(this->fuel->is_empty())
+    {
+        qDebug() << "player fuel is empty";
+        this->explode();
+        this->game->pause();
+    }
     if(upKeyPushed)
     {
         MovingObject::screenPhysics().accelerate(1);

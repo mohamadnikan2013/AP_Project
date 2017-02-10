@@ -10,6 +10,7 @@
 #include <QtMultimedia/qsound.h>
 #include "game.h"
 #include "DepotFuel.h"
+#include"fuelindicator.h"
 class Game;
 class Object;
 
@@ -25,11 +26,12 @@ private:
     bool rightKeyPushed;
     bool leftKeyPushed;
     bool hasBullet;
+    FuelIndicator * fuel;
 
     QSound sound;
 public:
     virtual void advance(int phase);
-    Player(Game* game, double vX, double aX);
+    Player(FuelIndicator* fuel , Game* game, double vX, double aX);
     void keyPressEvent(QKeyEvent * event);
     void keyReleaseEvent(QKeyEvent * event);
     virtual void explode();

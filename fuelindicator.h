@@ -23,6 +23,7 @@ public:
     virtual void advance(int phase);
     void onDepotFuel();
     void offDepotFuel();
+    bool is_empty();
 };
 
 #endif // FUELINDICATOR_H

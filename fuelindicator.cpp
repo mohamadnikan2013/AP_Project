@@ -6,7 +6,7 @@ FuelIndicator::FuelIndicator(int fps, double length) : center(length / 2, length
     backGround = new QGraphicsPixmapItem(QPixmap(":/images/fuelIndicator.png").scaled(length, length));
     increase = false;
 
-    fuel = 1000;
+    this->fuel = 10000000;
     QPen pen;
     pen.setColor(Qt::red);
     pen.setCapStyle(Qt::RoundCap);
@@ -60,4 +60,11 @@ void FuelIndicator::onDepotFuel()
 void FuelIndicator::offDepotFuel()
 {
     increase = false;
+}
+
+bool FuelIndicator::is_empty()
+{
+    if (this->fuel<=0.00001)
+        return true;
+    return false;
 }
