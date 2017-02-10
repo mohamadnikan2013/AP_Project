@@ -49,6 +49,8 @@ Game::Game(int w, int h) : width(w), height(h) {
     scene->addItem(walll);
     scene->addItem(wallr);
 
+    this->highestWall = walll;
+
 
     score = new Score;
     score->setPos(this->width - 80, this->height - 60);
@@ -79,7 +81,7 @@ Game::Game(int w, int h) : width(w), height(h) {
     QObject::connect(timer2, SIGNAL(timeout()), this, SLOT(create_enemies()));
 
     timer->start(1000 / framesPerSecond);
-    this->minWallY = 0;
+
 
 }
 
@@ -173,19 +175,18 @@ void Game::create_enemies() {
     this->scene->addItem(enemy);
 }
 void Game::create_map() {
-    minWallY += MovingObject::screenPhysics().movement();
-//    qDebug() << minWallY;
-    if(minWallY < 200)
+    //qDebug() << minWallY << " " << walll->y();
+    if(highestWall->y() < -100)
         return;
     int lWidth = 100 + qrand()%150;
     int rWidth = 100 + qrand()%150;
     int height = 50 + qrand() % 100;
     Wall *walll = new Wall(lWidth, height);
     Wall *wallr = new Wall(rWidth, height);
-    walll->setPos(0, minWallY - height);
-    wallr->setPos(this->width - rWidth, minWallY - height);
+    walll->setPos(0, highestWall->y() - height);
+    wallr->setPos(this->width - rWidth, highestWall->y() - height);
 
-    minWallY -= height;
+    highestWall = walll;
     scene->addItem(walll);
     scene->addItem(wallr);
 }
