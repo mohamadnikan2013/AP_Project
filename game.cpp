@@ -42,8 +42,8 @@ Game::Game(int w, int h) : width(w), height(h) {
     player->setFocus();
     scene->addItem(player);
 
-    Wall *walll = new Wall(150, this->height+150);
-    Wall *wallr = new Wall(150, this->height+150);
+    Wall *walll = new Wall(150, this->height+170);
+    Wall *wallr = new Wall(150, this->height+170);
     walll->setPos(rect().width() - this->width, rect().height() - this->height-150);
     wallr->setPos(rect().width() - 150, rect().height() - this->height-150);
     scene->addItem(walll);
@@ -73,7 +73,7 @@ Game::Game(int w, int h) : width(w), height(h) {
     QTimer *timer1 = new QTimer();
     QTimer *timer2 = new QTimer();
     timer1->start(3000);
-    timer2->start(2000);
+    timer2->start(4000);
     QObject::connect(timer1, SIGNAL(timeout()), this, SLOT(create_map()));
     QObject::connect(timer, SIGNAL(timeout()), scene, SLOT(advance()));
     QObject::connect(timer2, SIGNAL(timeout()), this, SLOT(create_enemies()));
@@ -116,23 +116,25 @@ void Game::unPause()
 }
 
 void Game::create_enemies() {
-    int myrand = qrand()%5;
-    int speed = qrand()%80;
-    EnemyObject *enemy;
+    int myrand = qrand()%7;
+    int speed = 20+qrand()%70;
+    MovingObject *enemy;
     QList < QGraphicsItem * > colliding_items;
     switch (myrand) {
         case 1:
             enemy = new Baloon(speed);
+             enemy->setPos(rect().width()-(qrand()%800), rect().height()-this->height);
+            break;
+        case 2:
+            enemy = new Jet(speed);
+             enemy->setPos(rect().width()-(qrand()%800), rect().height()-this->height);
+            break;
+        case 3:
+            enemy = new Helicopter(speed);
             do {
                 enemy->setPos(rect().width()-(qrand()%800), rect().height()-this->height);
                 colliding_items = enemy->collidingItems();
             } while (!colliding_items.isEmpty());
-            break;
-        case 2:
-            enemy = new Jet(speed);
-            break;
-        case 3:
-            enemy = new Helicopter(speed);
             break;
         case 4:
             enemy = new Tanker(speed);
@@ -141,11 +143,17 @@ void Game::create_enemies() {
                 colliding_items = enemy->collidingItems();
             } while (!colliding_items.isEmpty());
             break;
+        case 5:
+        enemy = new DepotFuel();
+        do {
+            enemy->setPos(rect().width()-(qrand()%800), rect().height()-this->height);
+            colliding_items = enemy->collidingItems();
+        } while (!colliding_items.isEmpty());
+        break;
         default:
             return;
     }
     qDebug()<<myrand;
-    enemy->setPos(rect().width()-(qrand()%800), rect().height()-this->height);
     this->scene->addItem(enemy);
 }
 void Game::create_map() {
