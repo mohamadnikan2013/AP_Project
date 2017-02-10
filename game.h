@@ -11,6 +11,7 @@
 #include "score.h"
 #include <QTimer>
 #include "menu.h"
+#include "Wall.h"
 
 class Menu;
 class Player;
@@ -34,7 +35,7 @@ private:
     int river_width;
     int framesPerSecond;
     bool is_finished;
-    double minWallY;
+    Wall* highestWall;
 
 public:
     Game(int w = 900, int h = 600);
