@@ -8,10 +8,13 @@
 #include"Object.h"
 #include <QKeyEvent>
 #include <QtMultimedia/qsound.h>
+#include "game.h"
+class Game;
 class Object;
 
 class Player : public Object{
 private:
+    Game* game;
     static int height;
     static int width;
 
@@ -25,7 +28,7 @@ private:
     QSound sound;
 public:
     virtual void advance(int phase);
-    Player(double vX, double aX);
+    Player(Game* game, double vX, double aX);
     void keyPressEvent(QKeyEvent * event);
     void keyReleaseEvent(QKeyEvent * event);
     virtual void explode();

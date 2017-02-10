@@ -23,7 +23,6 @@ SOURCES += main.cpp\
     Helicopter.cpp \
     Jet.cpp \
     Marinenemy.cpp \
-    Object.cpp \
     Tanker.cpp \
     Wall.cpp \
     movingObject.cpp \
@@ -33,7 +32,9 @@ SOURCES += main.cpp\
     Player.cpp \
     score.cpp \
     physics.cpp \
-    fuelindicator.cpp
+    fuelindicator.cpp \
+    menu.cpp \
+    Object.cpp
 
 HEADERS  += \
     AerialEnemy.h \
@@ -54,7 +55,8 @@ HEADERS  += \
     Player.h \
     score.h \
     physics.h \
-    fuelindicator.h
+    fuelindicator.h \
+    menu.h
 
 DISTFILES += \
     RiverRaidProject.pro.user
@@ -64,3 +66,6 @@ RESOURCES += \
     sounds.qrc
 
 OTHER_FILES +=
+
+FORMS += \
+    form.ui

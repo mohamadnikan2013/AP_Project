@@ -12,6 +12,8 @@
 #include "DepotFuel.h"
 
 Game::Game(int w, int h) : width(w), height(h) {
+    this->menu = new Menu(this);
+    menu->hide();
     framesPerSecond = 30;
     scene = new QGraphicsScene;
     scene->setSceneRect(0, 0, width, height);
@@ -19,7 +21,7 @@ Game::Game(int w, int h) : width(w), height(h) {
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setFixedSize(width, height);
     setScene(scene);
-    player = new Player(80, 10);
+    player = new Player(this, 80, 10);
 
     setBackgroundBrush(QBrush("blue"));
     Physics::setFps(framesPerSecond);
@@ -52,11 +54,25 @@ Game::Game(int w, int h) : width(w), height(h) {
     score->setPos(this->width - 80, this->height - 60);
     scene->addItem(score);
 
+//    int rand1 = 10;
+//    int rand2 = 20;
+//    int height = 20;
+//    Wall *walll = new Wall(rand1, height);
+//    Wall *wallr = new Wall(rand2, height);
+//    walll->setPos(rect().width() - this->width, rect().height() - this->height);
+//    wallr->setPos(rect().width() - rand2, rect().height() - this->height);;
+//    scene->addItem(walll);
+//    scene->addItem(wallr);
+
+
+
+
+//qDebug()<< qrand();
+
     QTimer *timer = new QTimer();
     QTimer *timer1 = new QTimer();
     QTimer *timer2 = new QTimer();
-    timer1->start(3000);
-    timer2->start(2000);
+
     QObject::connect(timer1, SIGNAL(timeout()), this, SLOT(create_map()));
     QObject::connect(timer, SIGNAL(timeout()), scene, SLOT(advance()));
     QObject::connect(timer2, SIGNAL(timeout()), this, SLOT(create_enemies()));
@@ -64,6 +80,24 @@ Game::Game(int w, int h) : width(w), height(h) {
     timer->start(1000 / framesPerSecond);
 
 }
+void Game::pause()
+{
+    ispaused = true;
+    timer->stop();
+    timer1->stop();
+    menu->show();
+    this->hide();
+}
+
+void Game::unPause()
+{
+    timer->start();
+    timer1->start();
+    ispaused = false;
+    menu->hide();
+    this->show();
+}
+
 void Game::create_enemies() {
     int myrand = qrand()%5;
     int speed = qrand()%80;
