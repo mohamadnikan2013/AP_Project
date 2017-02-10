@@ -8,6 +8,8 @@
 #include "EnemyObject.h"
 #include "Jet.h"
 #include <QDebug>
+#include<typeinfo>
+#include"Wall.h"
 
 Bullet::Bullet(Game* game, Player* player, double vY) : Object(Physics(), Physics(vY))
 {
@@ -27,6 +29,9 @@ void Bullet::advance(int phase)
             game->addScore(((MovingObject*)colliding_items[i])->getScore());
             this->explode();
             return;
+        }
+        if (typeid(*colliding_items[i])== typeid(Wall)){
+            this->explode();
         }
     }
 //    qDebug() << x() <<" " << y() << " " << getDeltaY();
