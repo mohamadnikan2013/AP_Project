@@ -174,7 +174,7 @@ void Game::create_enemies() {
 }
 void Game::create_map() {
     minWallY += MovingObject::screenPhysics().movement();
-    qDebug() << minWallY;
+//    qDebug() << minWallY;
     if(minWallY < 200)
         return;
     int lWidth = 100 + qrand()%150;

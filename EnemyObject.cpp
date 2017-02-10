@@ -32,6 +32,11 @@ bool EnemyObject::isEnemy()
 
 void EnemyObject::explode()
 {
+    int expLength = qMin(this->height(), this->width());
+    QPoint center(this->x() + this->width() / 2, this->y() + this->height() / 2);
+    Explosion* explosion = new Explosion(expLength);
+    explosion->setPos(center.x() - expLength / 2, center.y() - expLength / 2);
+    this->scene()->addItem(explosion);
     this->scene()->removeItem(this);
     //delete this;
 }

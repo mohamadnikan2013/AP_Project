@@ -22,10 +22,6 @@ protected:
 public:
     Object(Physics xPhys, Physics yPhys);
 
-    int getFramesPerSecond() const;
-
-    int setFramesPerSecond(int f);
-
     virtual void advance(int phase);
 
     virtual bool isEnemy();

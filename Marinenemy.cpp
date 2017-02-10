@@ -6,7 +6,7 @@
 #include "Wall.h"
 #include <typeinfo>
 #include <QDebug>
-
+#include "explosion.h"
 
 Marinenemy::Marinenemy(QString leftAddress, QString rightAddress, int height, int score, double vX)
         : EnemyObject(leftAddress, rightAddress, height,score, vX)

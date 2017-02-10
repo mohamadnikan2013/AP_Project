@@ -34,7 +34,8 @@ SOURCES += main.cpp\
     physics.cpp \
     fuelindicator.cpp \
     menu.cpp \
-    Object.cpp
+    Object.cpp \
+    explosion.cpp
 
 HEADERS  += \
     AerialEnemy.h \
@@ -56,7 +57,8 @@ HEADERS  += \
     score.h \
     physics.h \
     fuelindicator.h \
-    menu.h
+    menu.h \
+    explosion.h
 
 DISTFILES += \
     RiverRaidProject.pro.user

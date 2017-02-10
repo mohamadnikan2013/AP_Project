@@ -6,6 +6,7 @@
 #define ENEMYOBEJCT_H
 
 #include"movingObject.h"
+#include "explosion.h"
 class MovingObject;
 
 class EnemyObject : public MovingObject{

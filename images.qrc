@@ -13,12 +13,6 @@
         <file>images/rightTanker.png</file>
         <file>images/balloon.png</file>
         <file>images/balloon.jpg</file>
-        <file>images/explode1.jpg</file>
-        <file>images/explode2.jpg</file>
-        <file>images/explode3.jpg</file>
-        <file>images/explode4.jpg</file>
-        <file>images/explode5.jpg</file>
-        <file>images/explode6.jpg</file>
         <file>images/leftBalloon.png</file>
         <file>images/rightBalloon.png</file>
         <file>images/fuelIndicator.png</file>
@@ -26,5 +20,11 @@
         <file>images/leftTanker.png</file>
         <file>images/leftHelicopter.gif</file>
         <file>images/rightHelicopter.gif</file>
+        <file>images/explode1.png</file>
+        <file>images/explode2.png</file>
+        <file>images/explode3.png</file>
+        <file>images/explode4.png</file>
+        <file>images/explode5.png</file>
+        <file>images/explode6.png</file>
     </qresource>
 </RCC>
