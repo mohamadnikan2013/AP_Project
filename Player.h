@@ -34,7 +34,6 @@ public:
     void keyReleaseEvent(QKeyEvent * event);
     virtual void explode();
     void setHasBullet(bool value);
-
     static int getHeight();
     static void setHeight(int value);
     static int getWidth();

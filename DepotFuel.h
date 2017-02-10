@@ -12,6 +12,8 @@ class MovingObject;
 class DepotFuel : public MovingObject {
 public:
     DepotFuel();
+    int height();
+    int width();
 };
 
 

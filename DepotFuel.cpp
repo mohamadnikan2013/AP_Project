@@ -10,3 +10,13 @@ DepotFuel::DepotFuel()
 {
     this->setPixmap(QPixmap(":/images/fuelDepot.png").scaled(20, 50));
 }
+
+int DepotFuel::height()
+{
+    return 50;
+}
+
+int DepotFuel::width()
+{
+    return 20;
+}

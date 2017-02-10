@@ -69,16 +69,17 @@ Game::Game(int w, int h) : width(w), height(h) {
 
 //qDebug()<< qrand();
 
-    QTimer *timer = new QTimer();
-    QTimer *timer1 = new QTimer();
-    QTimer *timer2 = new QTimer();
+    timer = new QTimer();
+    timer1 = new QTimer();
+    timer2 = new QTimer();
     timer1->start(3000);
     timer2->start(4000);
-    QObject::connect(timer1, SIGNAL(timeout()), this, SLOT(create_map()));
+    QObject::connect(timer, SIGNAL(timeout()), this, SLOT(create_map()));
     QObject::connect(timer, SIGNAL(timeout()), scene, SLOT(advance()));
     QObject::connect(timer2, SIGNAL(timeout()), this, SLOT(create_enemies()));
 
     timer->start(1000 / framesPerSecond);
+    this->minWallY = 0;
 
 }
 
@@ -97,19 +98,34 @@ void Game::offFuel()
     this->fuelIndicator->offDepotFuel();
 }
 
+Game::~Game()
+{
+    delete timer;
+    delete timer1;
+    delete timer2;
+    delete menu;
+    delete scene;
+
+}
+
 void Game::pause()
 {
     ispaused = true;
     timer->stop();
     timer1->stop();
+    timer2->stop();
+    qDebug() << "got";
     menu->show();
+    qDebug() << "got";
     this->hide();
+    qDebug() << "got";
 }
 
 void Game::unPause()
 {
     timer->start();
     timer1->start();
+    timer2->start();
     ispaused = false;
     menu->hide();
     this->show();
@@ -157,13 +173,19 @@ void Game::create_enemies() {
     this->scene->addItem(enemy);
 }
 void Game::create_map() {
-    int rand1 = 100+qrand()%150;
-    int rand2 = 100+qrand()%150;
-    int height = 130;
-    Wall *walll = new Wall(rand1, height);
-    Wall *wallr = new Wall(rand2, height);
-    walll->setPos(rect().width() - this->width, rect().height() - this->height-150);
-    wallr->setPos(rect().width() - rand2, rect().height() - this->height-150);
+    minWallY += MovingObject::screenPhysics().movement();
+    qDebug() << minWallY;
+    if(minWallY < 200)
+        return;
+    int lWidth = 100 + qrand()%150;
+    int rWidth = 100 + qrand()%150;
+    int height = 50 + qrand() % 100;
+    Wall *walll = new Wall(lWidth, height);
+    Wall *wallr = new Wall(rWidth, height);
+    walll->setPos(0, minWallY - height);
+    wallr->setPos(this->width - rWidth, minWallY - height);
+
+    minWallY -= height;
     scene->addItem(walll);
     scene->addItem(wallr);
 }

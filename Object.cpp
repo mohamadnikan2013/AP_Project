@@ -22,5 +22,5 @@ bool Object::isEnemy()
 
 void Object::explode()
 {
-
+    this->scene()->removeItem(this);
 }

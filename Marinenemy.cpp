@@ -20,16 +20,15 @@ void Marinenemy::advance(int phase)
         if(typeid(*colliding_items[i]) == typeid(Wall))
         {
             this->xPhys.setV(-1 * this->xPhys.getV());
-            qDebug() << "got to a wall" << this->xPhys.getV();
             if(this->xPhys.getV() > 0)
             {
                 this->setPixmap(right);
-                this->setPos(mapToParent(10, 0));
+                this->setPos(mapToParent(5, 0));
             }
             else
             {
                 this->setPixmap(left);
-                this->setPos(mapToParent(-10, 0));
+                this->setPos(mapToParent(-5, 0));
             }
             return;
         }

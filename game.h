@@ -20,6 +20,7 @@ class Game : public QGraphicsView {
 private:
     QTimer *timer;
     QTimer *timer1;
+    QTimer *timer2;
     Menu* menu;
     bool ispaused;
     QGraphicsScene* scene;
@@ -33,12 +34,14 @@ private:
     int river_width;
     int framesPerSecond;
     bool is_finished;
+    double minWallY;
 
 public:
     Game(int w = 900, int h = 600);
     void addScore(int x);
     void onFuel();
     void offFuel();
+    ~Game();
 
 
 public slots:

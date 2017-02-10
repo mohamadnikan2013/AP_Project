@@ -37,6 +37,8 @@ void Player::keyPressEvent(QKeyEvent *event)
 {
     if(event->isAutoRepeat())
         return;
+    if(event->key() == Qt::Key_Escape)
+        game->pause();
     if(event->key() == Qt::Key_Space && !hasBullet)
     {
         sound.play();
