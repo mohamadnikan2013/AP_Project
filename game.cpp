@@ -72,7 +72,8 @@ Game::Game(int w, int h) : width(w), height(h) {
     QTimer *timer = new QTimer();
     QTimer *timer1 = new QTimer();
     QTimer *timer2 = new QTimer();
-
+    timer1->start(3000);
+    timer2->start(2000);
     QObject::connect(timer1, SIGNAL(timeout()), this, SLOT(create_map()));
     QObject::connect(timer, SIGNAL(timeout()), scene, SLOT(advance()));
     QObject::connect(timer2, SIGNAL(timeout()), this, SLOT(create_enemies()));
