@@ -20,6 +20,16 @@ Menu::Menu(Game* game,  QWidget *parent)
     this->setVisible(false);
 }
 
+Menu::~Menu()
+{
+    delete layout;
+
+    delete continu;
+    delete newGame;
+    delete quit;
+
+}
+
 void Menu::buildNewGame()
 {
     delete game;

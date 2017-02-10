@@ -21,6 +21,7 @@ private:
 
 public:
     explicit Menu(Game* game, QWidget *parent = 0);
+    ~Menu();
 public slots:
     void buildNewGame();
     void quitGame();

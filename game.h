@@ -20,8 +20,7 @@ class Game : public QGraphicsView {
     Q_OBJECT
 private:
     QTimer *timer;
-    QTimer *timer1;
-    QTimer *timer2;
+    QTimer *enemytimer;
     Menu* menu;
     bool ispaused;
     QGraphicsScene* scene;

@@ -3,6 +3,7 @@
 //
 
 #include "EnemyObject.h"
+#include <QDebug>
 
 int EnemyObject::height() const
 {

@@ -5,6 +5,7 @@
 #include <QPen>
 #include <QtMath>
 #include <QDebug>
+#include <QtMultimedia/QSound>
 
 class FuelIndicator : public QGraphicsItemGroup
 {
@@ -14,11 +15,14 @@ private:
     const QPoint center;
     const double indicatorLength;
     int fps;
+    QSound sound;
+    bool isSoundOn;
 
     QGraphicsPixmapItem* backGround;
     QGraphicsLineItem* indicator;
 public:
     FuelIndicator(int fps, double length);
+    ~FuelIndicator();
     QPoint getDist();
     virtual void advance(int phase);
     void onDepotFuel();

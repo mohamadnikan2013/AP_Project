@@ -1,6 +1,7 @@
 #include "fuelindicator.h"
 
-FuelIndicator::FuelIndicator(int fps, double length) : center(length / 2, length * 28 / 40), indicatorLength(length * 23 / 50)
+FuelIndicator::FuelIndicator(int fps, double length) : center(length / 2, length * 28 / 40), indicatorLength(length * 23 / 50),
+    sound(":/sounds/alert.wav")
 {
     this->fps = fps;
     backGround = new QGraphicsPixmapItem(QPixmap(":/images/fuelIndicator.png").scaled(length, length));
@@ -20,6 +21,15 @@ FuelIndicator::FuelIndicator(int fps, double length) : center(length / 2, length
     this->addToGroup(indicator);
 
     this->setZValue(10.0);
+
+    sound.setLoops(QSound::Infinite);
+    isSoundOn = false;
+}
+
+FuelIndicator::~FuelIndicator()
+{
+    delete backGround;
+    delete indicator;
 }
 
 QPoint FuelIndicator::getDist()
@@ -37,7 +47,15 @@ void FuelIndicator::advance(int phase)
     if(increase)
         fuel += (double)1000 / 5 / fps;
     else
-        fuel -= (double)1000 / 25 / fps;
+        fuel -= (double)1000 / 40 / fps;
+    if(fuel < 150 && isSoundOn == false)
+    {
+        qDebug() << "i'm here";
+        isSoundOn = true;
+        sound.play();
+    }
+    else
+        sound.stop();
     if(fuel < 0)
     {
         fuel = 0;

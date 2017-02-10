@@ -25,8 +25,8 @@ void Bullet::advance(int phase)
     {
         if(((Object*)colliding_items[i])->isEnemy() || typeid(*(colliding_items[i])) == typeid(DepotFuel))
         {
-            ((Object*)(colliding_items[i]))->explode();
             game->addScore(((MovingObject*)colliding_items[i])->getScore());
+            ((Object*)(colliding_items[i]))->explode();
             this->explode();
             return;
         }
