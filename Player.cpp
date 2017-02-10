@@ -158,11 +158,10 @@ void Player::advance(int phase)
     setPos(mapToParent(this->xPhys.movement() * direction, 0));
 
 
-
+    game->offFuel();
     QList<QGraphicsItem *> colliding_items = collidingItems();
     for(int i = 0 , n = colliding_items.size() ; i < n ; i++ )
     {
-        game->offFuel();
         if(((Object*)colliding_items[i])->isEnemy())
         {
             qDebug() << "player explode";
