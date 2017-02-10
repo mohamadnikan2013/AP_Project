@@ -23,7 +23,6 @@ Menu::Menu(Game* game,  QWidget *parent)
 Menu::~Menu()
 {
     delete layout;
-
     delete continu;
     delete newGame;
     delete quit;

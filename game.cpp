@@ -55,7 +55,7 @@ Game::Game(int w, int h) : width(w), height(h) {
 
     timer = new QTimer();
     enemytimer = new QTimer();
-    enemytimer->start(4000);
+    enemytimer->start(2000);
     QObject::connect(timer, SIGNAL(timeout()), this, SLOT(create_map()));
     QObject::connect(timer, SIGNAL(timeout()), scene, SLOT(advance()));
     QObject::connect(enemytimer, SIGNAL(timeout()), this, SLOT(create_enemies()));
@@ -85,14 +85,15 @@ Game::~Game()
     delete menu;
     delete scene;
 }
-
 void Game::pause()
 {
-    ispaused = true;
+/*    ispaused = true;
     timer->stop();
     enemytimer->stop();
     menu->show();
-    this->hide();
+    this->hide();*/
+
+    this->game_over();
 }
 
 void Game::unPause()
@@ -105,7 +106,7 @@ void Game::unPause()
 }
 
 void Game::create_enemies() {
-    int myrand = qrand()%7;
+    int myrand = qrand()%6;
     int speed = 20+qrand()%70;
     MovingObject *enemy;
     QList < QGraphicsItem * > colliding_items;
@@ -159,4 +160,45 @@ void Game::create_map() {
     highestWall = walll;
     scene->addItem(walll);
     scene->addItem(wallr);
+}
+
+
+void Game::game_over()
+{
+    this->scene->clear();
+    _panel1 = new QGraphicsRectItem(0,0,800,600);
+    _panel1->setBrush(QBrush(QImage(":/images/menu.png")));
+    _panel1->setOpacity(0.15);
+    this->scene->addItem(_panel1);
+
+    _panel2 = new QGraphicsRectItem(300,200,200,200);
+    QBrush brush;
+    brush.setStyle(Qt::SolidPattern);
+    brush.setColor(Qt::darkCyan);
+    _panel2->setBrush(brush);
+    _panel2->setOpacity(0.75);
+    this->scene->addItem(_panel2);
+
+    _gameOvr =new QGraphicsTextItem(QString("GameOver"));
+    QFont titleFont("comic sans", 15);
+    _gameOvr->setFont(titleFont);
+    int tXpos = rect().width()/2 - _gameOvr->boundingRect().width()/2;
+    int tYpos = 195;
+    _gameOvr->setPos(tXpos,tYpos);
+    scene->addItem(_gameOvr);
+    _playg = new QPushButton(QString("Play"));
+    _playg->setGeometry(rect().width()/2 - 50,225,100,60);
+    scene->addWidget(_playg);
+//    connect(_playg,SIGNAL(clicked()),this,SLOT(start()));
+    _cancelg = new QPushButton(QString("Quit"));
+    _cancelg->setGeometry(rect().width()/2 - 50,315,100,60);
+    scene->addWidget(_cancelg);
+    connect(_cancelg,SIGNAL(clicked()),this,SLOT(close()));
+
+    return;
+}
+
+void Game::start()
+{
+
 }

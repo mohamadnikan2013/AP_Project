@@ -19,6 +19,11 @@ class Player;
 class Game : public QGraphicsView {
     Q_OBJECT
 private:
+    QGraphicsRectItem *_panel1;
+    QGraphicsRectItem *_panel2;
+    QGraphicsTextItem* _gameOvr;
+    QPushButton *_playg;
+    QPushButton* _cancelg;
     QTimer *timer;
     QTimer *enemytimer;
     Menu* menu;
@@ -50,9 +55,10 @@ public slots:
 //    advance();
 
     void create_map();
+    void start();
 
     void create_enemies();
-
+      void game_over();
     void pause();
     void unPause();
 

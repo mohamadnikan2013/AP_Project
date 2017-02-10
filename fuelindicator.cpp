@@ -7,7 +7,7 @@ FuelIndicator::FuelIndicator(int fps, double length) : center(length / 2, length
     backGround = new QGraphicsPixmapItem(QPixmap(":/images/fuelIndicator.png").scaled(length, length));
     increase = false;
 
-    this->fuel = 10000000;
+    this->fuel = 10000;
     QPen pen;
     pen.setColor(Qt::red);
     pen.setCapStyle(Qt::RoundCap);
