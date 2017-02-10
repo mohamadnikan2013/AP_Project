@@ -21,7 +21,7 @@ Game::Game(int w, int h) : width(w), height(h) {
     setScene(scene);
     player = new Player(80, 10);
 
-    setBackgroundBrush(QBrush("gray"));
+    setBackgroundBrush(QBrush("blue"));
     Physics::setFps(framesPerSecond);
     MovingObject::screenPhysics().setV(20);
     MovingObject::screenPhysics().setA(10);
@@ -38,24 +38,19 @@ Game::Game(int w, int h) : width(w), height(h) {
     qDebug() << rect().height();
     player->setFlag(QGraphicsItem::ItemIsFocusable);
     player->setFocus();
+    scene->addItem(player);
 
-//    Baloon *jet = new Baloon(20);
-//    scene->addItem(jet);
-//    jet->setPos(rect().width() * .2, rect().width() * .2);
-//    qDebug() << jet->pos();
-//    Wall * wall = new Wall(150,10);
-//    qDebug()<<"added";
-//    wall->setPos(rect().width()-150,rect().height()-600);
-//    wall->setFlag(QGraphicsItem::ItemIsFocusable);
-//    wall->setFocus();
-//    scene->addItem(jet);
-//    scene->addItem(wall);
+    Wall *walll = new Wall(150, this->height);
+    Wall *wallr = new Wall(150, this->height);
+    walll->setPos(rect().width() - this->width, rect().height() - this->height);
+    wallr->setPos(rect().width() - 150, rect().height() - this->height);
+    scene->addItem(walll);
+    scene->addItem(wallr);
+
+
     score = new Score;
     score->setPos(this->width - 80, this->height - 60);
-
-//    scene->addItem(player);
     scene->addItem(score);
-scene->addItem(player);
 
 //    int rand1 = 10;
 //    int rand2 = 20;
@@ -73,11 +68,13 @@ scene->addItem(player);
 //qDebug()<< qrand();
     QTimer *timer = new QTimer();
     QTimer *timer1 = new QTimer();
+    timer1->start(3000);
     QObject::connect(timer, SIGNAL(timeout()), scene, SLOT(advance()));
     QObject::connect(timer1, SIGNAL(timeout()), this, SLOT(create_enemies()));
     QObject::connect(timer1, SIGNAL(timeout()), this, SLOT(create_map()));
+    timer->stop();
     timer->start(1000 / framesPerSecond);
-    timer1->start(300);
+
 }
 /*
 void Game::advance() {
@@ -132,9 +129,9 @@ void Game::drawBackground(QPainter *painter, const QRectF &rect)
 }
 */
 void Game::create_map() {
-    int rand1 = qrand()%300;
-    int rand2 = qrand()%300;
-    int height = 12;
+    int rand1 = 100+qrand()%150;
+    int rand2 = 100+qrand()%150;
+    int height = 130;
     Wall *walll = new Wall(rand1, height);
     Wall *wallr = new Wall(rand2, height);
     walll->setPos(rect().width() - this->width, rect().height() - this->height);
