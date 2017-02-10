@@ -34,8 +34,7 @@ Game::Game(int w, int h) : width(w), height(h) {
 
     player = new Player(this->fuelIndicator,this, 80, 10);
     player->setPos(rect().width() / 2 - player->getWidth() / 2, (rect().height() - player->getHeight()) * 5 / 6);
-    qDebug() << player->x() << "  " << player->y();
-    qDebug() << rect().height();
+
     player->setFlag(QGraphicsItem::ItemIsFocusable);
     player->setFocus();
     scene->addItem(player);
@@ -55,17 +54,13 @@ Game::Game(int w, int h) : width(w), height(h) {
     scene->addItem(score);
 
     timer = new QTimer();
-    timer1 = new QTimer();
-    timer2 = new QTimer();
-    timer1->start(3000);
-    timer2->start(2000);
+    enemytimer = new QTimer();
+    enemytimer->start(2000);
     QObject::connect(timer, SIGNAL(timeout()), this, SLOT(create_map()));
     QObject::connect(timer, SIGNAL(timeout()), scene, SLOT(advance()));
-    QObject::connect(timer2, SIGNAL(timeout()), this, SLOT(create_enemies()));
+    QObject::connect(enemytimer, SIGNAL(timeout()), this, SLOT(create_enemies()));
 
     timer->start(1000 / framesPerSecond);
-
-
 }
 
 void Game::addScore(int x)
@@ -86,31 +81,25 @@ void Game::offFuel()
 Game::~Game()
 {
     delete timer;
-    delete timer1;
-    delete timer2;
+    delete enemytimer;
     delete menu;
     delete scene;
-
 }
 void Game::pause()
 {
-//    ispaused = true;
-//    timer->stop();
-//    timer1->stop();
-//    timer2->stop();
-//    qDebug() << "got";
-//    menu->show();
-//    qDebug() << "got";
-//    this->hide();
-//    qDebug() << "got";
+/*    ispaused = true;
+    timer->stop();
+    enemytimer->stop();
+    menu->show();
+    this->hide();*/
+
     this->game_over();
 }
 
 void Game::unPause()
 {
     timer->start();
-    timer1->start();
-    timer2->start();
+    enemytimer->start();
     ispaused = false;
     menu->hide();
     this->show();
@@ -158,7 +147,6 @@ void Game::create_enemies() {
     this->scene->addItem(enemy);
 }
 void Game::create_map() {
-    //qDebug() << minWallY << " " << walll->y();
     if(highestWall->y() < -100)
         return;
     int lWidth = 100 + qrand()%150;

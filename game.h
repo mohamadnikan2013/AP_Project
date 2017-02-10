@@ -25,8 +25,7 @@ private:
     QPushButton *_playg;
     QPushButton* _cancelg;
     QTimer *timer;
-    QTimer *timer1;
-    QTimer *timer2;
+    QTimer *enemytimer;
     Menu* menu;
     bool ispaused;
     QGraphicsScene* scene;

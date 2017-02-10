@@ -3,5 +3,6 @@
         <file>sounds/boom.wav</file>
         <file>sounds/fire.wav</file>
         <file>sounds/fire2.wav</file>
+        <file>sounds/alert.wav</file>
     </qresource>
 </RCC>
